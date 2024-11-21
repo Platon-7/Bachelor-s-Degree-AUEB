@@ -1,0 +1,467 @@
+---
+title: "TMA4268 Compulsory Exercises 2"
+author: "Group 25"
+date: "1 4 2022"
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(MASS)
+library(leaps)
+library(glmnet)
+library(pls)
+library(GGally)
+library(gam)
+library(tree)
+library(tidyverse)
+library(palmerpenguins)
+library(randomForest)
+library(ggplot2)
+library(caret)
+library(ggfortify)
+library(e1071)
+```
+
+# Problem 1
+```{r , eval=TRUE, echo=TRUE}
+set.seed(1)
+boston <- scale(Boston, center = T, scale = T)
+# split into training and test sets
+train.ind = sample(1:nrow(boston), 0.8 * nrow(boston))
+boston.train = data.frame(boston[train.ind, ])
+boston.test = data.frame(boston[-train.ind, ])
+```
+
+## a)
+```{r , eval=TRUE, echo=TRUE}
+regfit.fwd = regsubsets(medv ~. , data=boston.train,nvmax=14, method ="forward")
+regfit.bwd = regsubsets(medv ~. , data=boston.train,nvmax=14, method ="backward")
+reg.summary.fwd <- summary(regfit.fwd)
+plot(reg.summary.fwd$adjr2,xlab="Number of Variables",ylab="Adjusted RSq",type="l")
+title(main= "adjusted R for Forward Stepwise Selection")
+```
+
+```{r , eval=TRUE, echo=TRUE}
+reg.summary.bwd <- summary(regfit.bwd)
+plot(reg.summary.bwd$adjr2,xlab="Number of ariables",ylab="AdjustedRSq",type="l")
+title(main= "adjusted R for Backward Stepwise Selection")
+```
+
+## b)
+```{r , eval=TRUE, echo=TRUE}
+reg.summary.fwd$outmat
+```
+We can from this summary see that we should choose the four predictors: rm, dis, ptratio and lstat. 
+```{r , eval=TRUE, echo=TRUE}
+reg.summary.bwd$outmat
+```
+We get the same result for the summary from the backward stepwise selection. 
+
+## c)
+
+* i)
+```{r , eval=TRUE, echo=TRUE}
+x.train <- model.matrix(medv ~ ., data = boston.train)
+y.train <- boston.train$medv
+set.seed(1)
+cv.lasso <- cv.glmnet(x.train, y.train, alpha = 1)
+plot(cv.lasso)
+```
+
+```{r , eval=TRUE, echo=TRUE}
+cat("The minimal lambda value is:",cv.lasso$lambda.min)
+```
+
+* ii)
+```{r , eval=TRUE, echo=TRUE}
+cat("The best lambda value is:",cv.lasso$lambda.1se)
+```
+
+* iii)
+```{r , eval=TRUE, echo=TRUE}
+medv.lasso <- glmnet(x.train, y.train, alpha = 1, lambda = cv.lasso$lambda.1se)
+coef(medv.lasso)
+```
+
+## d)
+For this problem we get the following:
+
+* i) True
+* ii) False
+* iii) False
+* iv) True
+
+# Problem 2
+## a)
+```{r, include=FALSE,, echo=FALSE, eval=TRUE}
+id <- "1CWZYfrLOrFdrIZ6Hv73e3xxt0SFgU4Ph"
+synthetic <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download",
+                              id))
+train.ind = sample(1:nrow(synthetic), 0.8 * nrow(synthetic))
+synthetic.train = data.frame(synthetic[train.ind, ])
+synthetic.test = data.frame(synthetic[-train.ind, ])
+```
+First we perform pcr 
+```{r, echo=TRUE, eval=TRUE}
+set.seed(1)
+pcr.fit<-pcr(Y~., data = synthetic.train, scale = TRUE, validation ="CV")
+pcr.pred<-predict(pcr.fit,synthetic.test,ncomp = 5)
+cat("The MSE relative to the test set is:", mean((pcr.pred- synthetic.test$Y)^2))
+validationplot(pcr.fit,val.type = "MSEP")
+```
+As we observe in the plot, the first few principle components has little effect on the MSEP. This is a good indicator that pcr is not effective when used on this particular data set. pcr usually preforms well when the first components contributes significantly to the reduction of MSEP
+Then perform plsr
+```{r, echo=TRUE, eval=TRUE}
+set.seed(1)
+plsr.fit<-plsr(Y~.,data = synthetic.train,scale = TRUE, validation = "CV")
+plsr.pred<-predict(plsr.fit,synthetic.test, ncomp = 5)
+cat("The MSE relative to the test set is:", mean((plsr.pred-synthetic.test$Y)^2))
+validationplot(plsr.fit,val.type = "MSEP")
+```
+## b)
+
+We see from the plot that the first partial least squre component reduces the majority of the mean square error. After only 4 components, next to all the MSE is accounted for. To understand why plsr performce so much better than pcr, we need to understand the difference between pcr and plsr. Pcr is unsupervised, it simply finds the directions relative to the covariates for which the variance is the highest. On the other hand, plsr is supervised. The first components is found by fitting a linear regression to the data set. Because of this, plsr chooses the most predictive component in the data set. Plsr outperformce pcr significantly when directions along which there is low variance is highly predictive relative to the response. Pcr, mistakenly, drops these components, while plsr first few components is based on these directions. 
+```{r, echo=TRUE, eval=TRUE}
+ggpairs(synthetic, lower = list(continuous = wrap("points", alpha = 0.3, size=0.1), combo = wrap("dot", alpha = 0.4,    size=0.2)),)
+```
+From this plot we se that y, x1, x2 and x3 is approximately normal distributed and that x4-10 is approximately uniform distributed. Moreover, the x1 seems to be the only covariate that is strongly correlated with y, so plsr would probably make a linear combination of mainly x1. Pcr would not pick up on this fact, but would rather make linear combinations of mainly x4-10, since these has higher variance compared to the normal distributed covariates. 
+
+# Problem 3
+Multiple choice:
+
+* i) True
+* ii) False
+* iii) False. 
+* iv) True
+
+```{r, echo=TRUE, eval=TRUE}
+fit.gam<-gam(medv~rm+s(ptratio,3)+poly(lstat,2), data = boston.train)
+plot.Gam(fit.gam, se = TRUE, col = "blue")
+```
+
+# Problem 4
+```{r, echo=FALSE, eval=TRUE}
+names(penguins) <- c("species", "island", "billL", "billD", "flipperL", "mass", "sex", "year")
+Penguins_reduced <- penguins %>% dplyr::mutate(mass = as.numeric(mass), flipperL = as.numeric(flipperL), year = as.numeric(year)) %>% drop_na()
+Penguins_reduced <- Penguins_reduced[, -c(8)]
+set.seed(4268)
+training_set_size <- floor(0.7 * nrow(Penguins_reduced))
+train_ind <- sample(seq_len(nrow(Penguins_reduced)), size = training_set_size)
+train <- Penguins_reduced[train_ind, ]
+test <- Penguins_reduced[-train_ind, ]
+```
+## a)
+
+* i) False
+
+* ii) True
+
+* iii) True
+
+* iv) True
+
+## b)
+
+![Our tree](4b.PNG)
+
+## c)
+
+* i) We create the tree and use the train data.
+
+```{r,eval=TRUE,echo=TRUE}
+tree.HIClass = tree(species~., data= train, split= "gini")
+summary(tree.HIClass)
+plot(tree.HIClass, type = "uniform")
+text(tree.HIClass, pretty = 1)
+```
+
+* ii) We use the prune function to apply cost complexity pruning. The cv.tree function does automatically 10-fold cross validation. Moreover, we plot the misclassifications.
+
+```{r,eval=TRUE,echo=TRUE}
+set.seed(123)
+cv.head = cv.tree(tree.HIClass, FUN = prune.misclass)
+plot(cv.head$size, cv.head$dev, type="b", xlab = "Terminal Nodes", ylab = "Misclassifications")
+```
+
+* iii) We will print the results from previously in order to see which number of nodes we will choose.
+
+```{r,eval=TRUE,echo=TRUE}
+print(cv.head)
+```
+
+We choose the number of the nodes with the least misclassifications (=14) so we choose nodes = 3.
+
+```{r,eval=TRUE,echo=TRUE}
+prune.HIClass = prune.misclass(tree.HIClass, best = 3)
+tree.pred.prune <- predict(prune.HIClass, test, type="class")
+confMat<-confusionMatrix(tree.pred.prune,test$species)
+error_rate<- 1 - sum(diag(confMat$table))/sum(confMat$table)
+confMat$table
+cat("Error rate:",error_rate)
+```
+
+## d)
+
+The basic parameters that could be tuned in Random Forest are the number of trees -ntree- and the number of variables tested at each split -mtry-. The number of trees is not really significant for tuning, it is enough if we have a large number of trees so we will leave that at the default value which is 500. The number of variables tested at each split though should be tuned and we will do that below using the model accuracy.
+
+```{r,eval=TRUE,echo=TRUE}
+control <- trainControl(method='repeatedcv', number = 10, repeats=3, search = 'random')
+rf_random<- train(species~., data = train, method = 'rf', metric = 'Accuracy', tuneLength = 15, trControl = control)
+print(rf_random)
+```
+
+According to the model accuracy the best mtry is 1 so we will use that.
+
+```{r,eval=TRUE,echo=TRUE}
+penguins.rf <- randomForest(species~., data = train, mtry = 1)
+print(penguins.rf)
+```
+
+Now we will calculate the misclassification error rate for the test data.
+
+```{r,eval=TRUE,echo=TRUE}
+pred.rf <- predict(penguins.rf, test)
+confMat2 <- confusionMatrix(pred.rf, test$species)$table
+confMat2
+error_rate2<-1 - sum(diag(confMat2))/sum(confMat2)
+cat("Error rate:", error_rate2)
+```
+
+Lastly, we calculate the most important predictors using the varImp function which returns the variable importance based on mean decrease in accuracy
+
+```{r,eval=TRUE,echo=TRUE}
+varImp(penguins.rf)
+```
+
+We can see that billL is the most important predictor followed by flipperL.
+
+# Problem 5
+## a)
+* i) False
+* ii) True 
+* iii) True 
+* iv) True
+
+## b)
+
+Firstly, we use cross validation to find values for the support vector machine
+
+```{r, echo=TRUE, eval = TRUE}
+set.seed(4268)
+tune.svm<-tune(svm,species~., kernel = "radial",
+               data = train, 
+               ranges = list(cost = 10^(-3:3),
+               gamma = 10^(-3:3)))
+par.svm<-tune.svm$best.parameters
+cat("Best cost for svm:", par.svm$cost,"\n")
+cat("Best gamme for svm:",par.svm$gamma,"\n")
+
+set.seed(4268)
+tune.svc<-tune(svm, species~., kernel = "linear",
+               data = train,
+               ranges = list(cost =
+                               10^(-3:3)))
+par.svc<-tune.svc$best.parameters
+cat("Best cost for svc:", par.svc$cost,"\n")
+
+```
+
+Form this we see that the best parameters for the support vector machine is when the cost is 10 and gamma is 0.1. The support vector classifier is optimal when the cost i 1. Using this, we firstly fit the svm
+```{r, echo = TRUE, eval = TRUE}
+svm.fit<-svm(species~.,data = train,
+             kernel = "radial",cost = 10,
+             gamma = 0.1)
+
+pred.svm<-predict(svm.fit,test)
+
+table.svm<-table(test$species,pred.svm)
+msrate.svm<-1-sum(diag(table.svm))/sum(table.svm)
+cat("The missclassification rate is:",msrate.svm)
+table.svm
+```
+We get two missclassifications. For the svc
+```{r, echo = TRUE, eval = TRUE}
+sv.fit<-svm(species~.,data = train, kernel = "linear", cost = 1, scale = FALSE)
+
+pred.sv<-predict(sv.fit,test)
+table.sv<-table(test$species,pred.sv)
+msrate.sv<-1-sum(diag(table.sv))/sum(table.sv)
+cat("The missclassification rate is:",msrate.sv)
+table.sv
+```
+So the scv has only one miss classification. Since svc is a simpler method than svm, and has very similar performance, it is the recommended algorithm for this data set. 
+
+# Problem 6
+```{r, echo=FALSE, eval=TRUE}
+# load a synthetic dataset
+id <- "1NJ1SuUBebl5P8rMSIwm_n3S8a7K43yP4" # google file ID
+happiness <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id),fileEncoding="UTF-8-BOM")
+```
+
+```{r, echo=FALSE, eval=TRUE}
+# load a synthetic dataset
+id <- "1NJ1SuUBebl5P8rMSIwm_n3S8a7K43yP4" # google file ID
+happiness <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id),fileEncoding="UTF-8-BOM")
+
+
+cols = c('Country.name', 
+         'Ladder.score',  # happiness score
+         'Logged.GDP.per.capita',  
+         'Social.support', 
+         'Healthy.life.expectancy', 
+         'Freedom.to.make.life.choices',
+         'Generosity',  # how generous people are
+         'Perceptions.of.corruption')
+
+# We continue with a subset of 8 columns:
+happiness = subset(happiness, select = cols)
+rownames(happiness) <- happiness[, c(1)]
+
+# And we creat an X and a Y matrix
+happiness.X = happiness[, -c(1, 2)]
+happiness.Y = happiness[, c(1, 2)]
+happiness.XY = happiness[, -c(1)]
+
+# scale
+happiness.X = data.frame(scale(happiness.X))
+```
+
+```{r, echo=TRUE, eval=TRUE}
+pca_mat = prcomp(happiness.X, center = T, scale = T)
+```
+
+## a)
+* i) The variables "freedom to make life choices" and "corruption" point in opposite directions.
+The variables "logged GDR per capita", "healthy life expectancy" and "social support" point in very similar directions.
+* ii) Afghanistan can be considered to be an outlier/anomaly.
+
+## b) 
+
+* i) Absolute values of first principal component by PCA
+```{r 6b1PCA, eval=TRUE, echo=TRUE}
+#Absolute values of first principal component PC1
+
+PC1vals <- data.frame(pca_mat$rotation)$PC1
+categories <- colnames(happiness)
+vars <- categories[c(3:8)]
+vars
+
+absPC1vals<- c()
+for(i in 1:length(PC1vals)){
+  absPC1vals[i] = abs(PC1vals[i])
+}
+absPC1vals
+
+par(mar = c(7, 4, 2, 2) + 0.5) #add room for the labels
+barplot(absPC1vals,col = c("darkgreen", "palevioletred2", "lightskyblue", "plum", "palegreen2", "lightpink1"),names.arg = vars,cex.names=0.55, main="PC1",las=2 ,ylab="abs(PC1)")
+```
+
+* ii) Fitting a partial least squares model (PLSR) on happiness.XY with response Ladder.score.
+```{r 6b2 PLSR, echo=TRUE, eval=TRUE}
+plsr_model <- plsr(Ladder.score~., data=happiness.XY,validation="CV", scale=T)
+summary(plsr_model)
+```
+
+* iii) Absolute values of first principal components for X in happiness.XY
+```{r 6b3 AbsPC1, echo=TRUE, eval=TRUE}
+#Absolute values of first principal component PC1
+comp1vals<-plsr_model$loadings[,c('Comp 1')]
+comp1vals
+
+categories <- colnames(happiness)
+vars <- categories[c(3:8)]
+vars
+
+abscomp1<- c()
+for(i in 1:length(comp1vals)){
+  abscomp1[i] = abs(comp1vals[i])
+}
+abscomp1
+
+par(mar = c(7, 4, 2, 2) + 0.9) #add room for the rotated labels
+barplot(abscomp1, main="PC1",col = c("darkgreen", "palevioletred2", "lightskyblue", "plum", "palegreen2", "lightpink1"), names.arg=vars, cex.names = 0.57 ,las=2 ,ylab="abs(PC1)")
+```
+Comparing the bar plot in $\textbf{i)}$ with PCA to the bar plot above in $\textbf{ii)}$ with PLSR, we see that they look very similar. It is difficult to spot any differences in the values from the bar plot, so we examine the absolute values of the PC1:
+```{r}
+absPC1vals   #Abs values from PCA
+abscomp1     #Abs values from PLSR
+```
+All absolute values differ slightly from each other, but if we rank them by value the order is the same. 
+
+
+* iv) Based on the PLSR-plot, the three most important predictors to predict the happiness score are (from most to least) Logged.GDP.per.capita, Healthy.life.expectancy and Social.support. The values above confirms this. 
+
+
+## c) 
+
+* i) False
+* ii) False
+* iii) False
+* iv) True
+
+
+## d)
+
+* i) K-means clusterization
+
+```{r 6d1 K-means Clusterization, echo=TRUE, eval=TRUE}
+K=4   #Number of clusters
+
+km.out=kmeans(happiness.X, K)
+
+autoplot(pca_mat, data=happiness.X, colour=km.out$cluster, label= T, label.size=5, loadings = F, loadings.colour="blue", loadings.label=F, loadings.label.size=3 )
+```
+We see in the clusterization plot that our condition is satisfied. Norway, Sweden, Denmark and Finland are in the red cluster, while United states is in the green cluster. 
+
+* ii) 
+
+  $\textbf{1.}$ The four clusters are related to the happiness score, Ladder.score, where the red ranks highest and blue ranks lowest in Ladder.score. The happiest countries are placed in the red cluster and the least happy country, Afghanistan is in the black cluster. There is overlap between the happiness values of the countries in the clusters.
+  
+  $\textbf{2.}$ The red cluster ranks highest on Freedom.to.make.life.choices, Social.support, Logged.GPD.per.capita and Healthy.life.expectancy. This suggests that high scores of these variables contribute to higher happiness overall. 
+  
+  $\textbf{3.}$ The black cluster ranks higher on corruption and lower on the variables mentioned in point 2. This suggests that high values of corruption contributes to a lower happiness scores.
+  
+```{r}
+
+#Vector containing all happiness scores
+lad<-c(happiness.Y[,2])
+
+#Cluster colors by cluster index 
+cols=c("black", "red", "green", "blue")
+
+clustercolvec<-km.out$cluster
+
+#Vector of cluster numbers of all countries
+newvec<-unname(clustercolvec)
+
+#Vector for cluster indices of the countries
+colr=c()
+for(i in 1:149){
+  colr[i]= cols[newvec[i]]
+}
+
+#Vector of ones
+xvec<-rep(c(1),each=149)
+
+#Making a scatterplot
+plot(x = 1,
+     type = "n",
+     xlim = c(0, 2), 
+     ylim = c(0, 9),
+     pch = 30,
+     xlab = "x (not relevant variable)", 
+     ylab = "Ladder.score",
+     main = "Happiness score by clusters")
+
+
+points(x = xvec,
+       y = lad,
+       pch = 1,
+       cex=3,
+       col = colr)
+
+```
+  
+  

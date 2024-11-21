@@ -1,0 +1,334 @@
+---
+subtitle: "TMA4268 Statistical Learning V2022"
+title: "Compulsory exercise 1: Group 25"
+author: "Plato Karageorgis, Jonas Gustav Dønheim Nordstrøm,  Fanny Øverbø Næss and Ole Kristian Skogly"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  #html_document
+  pdf_document
+#render("TEMPLATEPROJ1.Rmd")
+---
+  
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE,tidy=TRUE,message=FALSE,warning=FALSE,strip.white=TRUE,prompt=FALSE,
+                      cache=TRUE, size="scriptsize",fig.width=4, fig.height=3,fig.align = "center")
+```
+
+```{r,eval=TRUE,echo=FALSE}
+# install.packages("knitr") #probably already installed
+# install.packages("rmarkdown") #probably already installed
+# install.packages("ggplot2") #plotting with ggplot
+# install.packages("palmerpenguins")
+# install.packages("ggfortify") # For model checking
+# install.packages("MASS")
+# install.packages("class")
+# install.packages("pROC")
+# install.packages("plotROC")
+# install.packages("boot")
+library("knitr")
+library("rmarkdown")
+library(palmerpenguins)
+library(tidyverse)
+library(GGally)
+library(MASS)
+library(class)
+library(pROC)
+library(plotROC)
+library(ggplot2)
+library(GGally)
+```
+
+<!--  Etc (load all packages needed). -->
+
+
+# Problem 1
+
+
+## a)
+
+$$
+\text{MSE}=E[(y-\hat{f}(x))^2]
+$$
+$$
+=E[(\hat{f}(x)^2-2E[\hat{f}(x)y]]+E[y^2]
+$$
+We substitute $y$ with $f(x)+\epsilon$
+$$
+=E[(\hat{f}(x)^2-2E[\hat{f}(x)(f(x)+\epsilon)]]+E[(f(x)+\epsilon)^2]
+$$
+Then by expanding and using that $\epsilon$ is independent from $f(x)$ and $\hat{f}(x)$, we find
+
+$$
+=E[\hat{f}(x)^2]-2\left(E[\hat{f}(x)]f(x))+E[\epsilon]E[\hat{f}(x)]\right)+f(x)^2+2E[\epsilon]f(x)+E[\epsilon^2]
+$$
+
+We assume that $\epsilon \sim N(0,\sigma_\epsilon^2)$, then 
+
+$$
+E[\epsilon]=0 , \hspace{20pt} \text{Var}[\epsilon]=E[\epsilon ^2]=\sigma_\epsilon ^2
+$$
+And we have
+
+$$
+\text{Bias}[\hat{f}(x)]=E[\hat{f}(x)]-f(x), \hspace{20pt} \text{Var}(\hat{f}(x))=E[(\hat{f}(x)]-E[\hat{f}(x)])^2]
+$$
+
+Using this and by adding and subtracting  $E[\hat{f}(x)]^2$ from our expression for the MSE we get
+
+$$
+=\left(E[\hat{f}(x)]^2-2E[\hat{f}(x)]f(x)+f(x)^2\right)+E[\hat{f}(x)^2]- E[\hat{f}(x)]^2 +Var[\epsilon]
+$$
+$$
+=\left(E[\hat{f}(x)]-f(x)\right)^2+\text{Var}[\hat{f}(x)]+\sigma_\epsilon^2
+$$
+
+$$
+=\text{Bias}[\hat{f}(x)]^2+\text{Var}[\hat{f}(x)]+\sigma_\epsilon^2
+$$
+
+
+
+## b)
+
+As denoted in a), the bias is defined as the square error between the expected value of $\hat{f}$ and the true function $f$. The bias decreases when the complexity of $\hat{f}$ increases. The more complex $\hat{f}$ is, the closer it may approximate each data point $y_i$. However, the reduction of bias 
+as denoted in $\textbf{a)}$, the bias is defined as the difference between the expected value of $\hat{f}$ and the true function $f$. The bias decreases when the complexity of $\hat{f}$ increases. The more complex $\hat{f}$ is, the closer it may approximate each data point $y_i$.
+
+The variance is a measure of the spread of the outputs of $\hat{f}$. The variance increases with the complexity of $\hat{f}$, and so, there is a trade-off between variance and bias.
+
+The irreducible error is the variance of the $\textit{true}$ error, $\epsilon$. The error is independent of the model, and is therefore irreducible.
+
+
+## c)
+* i) True
+* ii) False
+* iii) True
+* iv) False
+
+## d)
+
+* i) True
+* ii) False
+* iii) True
+* iv) False
+
+## e)
+* iii) 0.76
+
+ 
+
+# Problem 2
+
+
+## a)
+* $\textbf{Removes sex as a variable:}$ We were given a model developed by experts, and should not remove any elements from it. Additionally, he has misunderstood the meaning of p-values. Because sex has the smallest p-value, it is the most significant, and would therefore lower the quality of the prediction significantly if removed. If one were to remove a variable to avoid overfitting, one should remove the variable that is the least significant. 
+* $\textbf{False statement about coefficients:}$ Basil states that "Since both of the species coefficients have large p-values, we do not reject the null hypothesis that the species coefficient overall is actually zero." We do not know anything of the relationship between the coefficients speciesChinstrap and speciesGentoo because of the way that the dummy variables has been coded.
+
+```{r 2aii, eval=TRUE, echo=TRUE}
+attach(penguins)
+contrasts(species)
+```
+From this we see that a binary relationship has been implemented for the three classes, where we have two pairwise comparisons between Adelie and the two other species. Because of this, we never compare Chinstrap and Gentoo with each other, and can therefore not determine whether there is a significance between all species. 
+
+* $\textbf{Misunderstands coefficients:}$ Basil states that we can tell that the Chinstrap has the largest body mass based on the coefficient $\hat{\beta}_{chinstrap}$. However, this coefficient is only related to Adelie, and not Gentoo. Since the dummy variable has more than two levels, it can not represent all possible variables.
+
+## b)
+```{r 2b, eval=TRUE, echo=TRUE}
+library(palmerpenguins)
+library(GGally)
+summary(penguins)
+names(penguins)
+
+
+#Select a subset of variables that are continous
+penguins.plot<-subset(penguins, select = -c(island,species,year))
+#A subset of sex and body_mass_g
+penguins.sex<-subset(penguins, select = c(sex,body_mass_g))
+
+#Plot of continuous variables with sex coloring, male=blue, female=red
+ggpairs(penguins.plot, aes(color = sex))
+
+```
+
+ 
+## c)
+```{r 2c, eval=TRUE ,echo=TRUE}
+penguin.model <- lm(body_mass_g ~ flipper_length_mm + sex + bill_depth_mm * species, data = penguins)
+summary(penguin.model)
+```
+According to the exercise description, Basil was given an optimal model developed by experts, hence it is unnecessary to investigate the model for optimization. Moreover, in comparison with Basil's report, we will not exclude the sex variable because we observe from the p-value that it is significant. The only predictor that has a high p-value is the species' category speciesGentoo and subsequently bill_depth_mm interaction with it, but we should not remove the species variable since it is a crucial part of our model. The model can be described by these functions:
+
+$$
+\hat{y}_{adelie} = \hat{\beta_0} + \hat{\beta}_{flipperlength}x_{flipperlength} + \hat{\beta}_{billdepth}x_{billdepth} + \hat{\beta}_{sex}x_{sex}
+$$
+$$
+\hat{y}_{chinstrap} = \hat{\beta_0} +  \hat{\beta}_{flipperlength}x_{flipperlength} + (\hat{\beta}_{billdepth} + \hat{\beta}_{billdepth:chinstrap})x_{billdepth} + \hat{\beta}_{chinstrap} + \hat{\beta}_{sex}x_{sex}
+$$
+$$
+\hat{y}_{gentoo} = \hat{\beta_0} +  \hat{\beta}_{flipperlength}x_{flipperlength} + (\hat{\beta}_{billdepth} + \hat{\beta}_{billdepth:gentoo})x_{billdepth} + \hat{\beta}_{gentoo} + \hat{\beta}_{sex}x_{sex}
+$$
+We note that the coefficient $x_{sex}$ is binary, 1 if male, 0 if female.
+After the summary, due to the very large difference in the Chinstrap species compared to others and also the difference of the male penguins, we have the intuition that these have the bigger body mass but we can't be certain because we need more extensive analysis and different tests like anova.
+
+```{r 3a, eval=TRUE,echo=TRUE}
+
+plot(penguin.model)
+```
+From the residual plot we see a random spread, indicating that the linear model fits the data well, and therefor that we don't need a more complex model to fit the data. The Q-Q plot strongly suggests that our assumption about the data being Normal distributed is correct.
+
+# Problem 3
+## a)
+
+Firstly, we need to run the code that was prepared for this task
+```{r problem3a, eval=TRUE, echo=TRUE}
+# Create a new boolean variable indicating whether or not the penguin is an
+# Adelie penguin
+penguins$adelie <- ifelse(penguins$species == "Adelie", 1, 0)
+# Select only relevant variables and remove all rows with missing values in body
+# mass, flipper length, sex or species.
+Penguins_reduced <- penguins %>% dplyr::select(body_mass_g, flipper_length_mm, adelie) %>%
+  mutate(body_mass_g = as.numeric(body_mass_g), flipper_length_mm = as.numeric(flipper_length_mm)) %>%drop_na()
+set.seed(4268)
+# 70% of the sample size for training set
+training_set_size <- floor(0.7 * nrow(Penguins_reduced))
+train_ind <- sample(seq_len(nrow(Penguins_reduced)), size = training_set_size)
+train <- Penguins_reduced[train_ind, ]
+test <- Penguins_reduced[-train_ind, ]
+```
+Then, we use each of the classification methods. Firstly, we use logistic regression from the glm package
+
+```{r}
+#Logistic regression
+fit.log<-glm(adelie~.,family = binomial, data = train)
+summary(fit.log)
+log.probs <- predict(fit.log,test, type ="response")
+log.preds <- ifelse(log.probs>0.5, 1,0)
+#Confusion matrix
+log.matrix<-table(log.preds,test$adelie)
+cat("Confusion matrix:")
+log.matrix
+```
+Then, we fit the qda model
+```{r}
+fit.qda <- qda(adelie~.,data = train)
+qda.preds <- predict(fit.qda,newdata = test)$class
+qda.probs <- predict(fit.qda,newdata = test)$posterior
+qda.matrix<-table(qda.preds,test$adelie)
+cat("Confusion matrix:")
+qda.matrix
+```
+Lastly, the knn model with k=25
+```{r}
+set.seed(7)
+fit.knn<- knn(train = train, test = test, cl = train$adelie, k = 25, prob = T )
+knn.probs <- ifelse(fit.knn == 0, 1 - attributes(fit.knn)$prob, attributes(fit.knn)$prob)
+knn.matrix<-table(fit.knn,test$adelie)
+cat("Confusion matrix:")
+knn.matrix
+```
+Lastly we calculate the specificity and sensitivity for each of the methods. To do this more easily, we define a function that calculates this, using the confusion matrix.
+```{r}
+sensitivity<-function(matrix){
+  return(matrix[2,2]/(matrix[1,2]+matrix[2,2]))
+}
+specificity<-function(matrix){
+  return(matrix[1,1]/(matrix[1,1]+matrix[2,1]))
+}
+```
+So for logistic regression we have
+```{r}
+cat("the sensitivity of logistic regression is:",sensitivity(log.matrix),"\n")
+cat("the specificity of  logistic regression is:",specificity(log.matrix)) 
+```
+Similarly, for qda
+```{r}
+cat("the sensitivity of qda is:",sensitivity(qda.matrix),"\n")
+cat("the specificity of qda is:",specificity(qda.matrix)) 
+```
+Lastly, for the knn
+```{r, eval=TRUE, echo=TRUE}
+cat("the sensitivity of knn is:",sensitivity(knn.matrix),"\n")
+cat("the specificity of knn is:",specificity(knn.matrix)) 
+```
+## b)
+Firstly we find the roc curve for each of the models
+```{r 3b, eval=TRUE, echo=TRUE}
+logroc <- roc(response = test$adelie, predictor = log.probs, direction = "<")
+qdaroc <- roc(response = test$adelie, predictor = qda.probs[,2], direction = "<")
+knnroc <- roc(response = test$adelie, predictor = knn.probs, direction = "<")
+
+dat <- data.frame(adelie = test$adelie, log = log.probs, qda = qda.probs[,2], knn = knn.probs)
+dat.long <- melt_roc(dat, "adelie", c("log","qda","knn"))
+ggplot(dat.long, aes(d=D, m=M, color = name))+geom_roc(n.cuts =F) + xlab("1-Specifisity")+ ylab("Sensitivity")
+```
+
+Now, we can find the area under the roc curve (auc)
+```{r}
+cat("The auc of the logistic regression is:",auc(logroc),"\n")
+cat("The auc of the qda is:",auc(qdaroc),"\n")
+cat("The auc of the knn is:",auc(knnroc))
+```
+From the curves and the auc values we may conclude that logistic regression and qda perform very similar; where logistic regression has a slight edge. Knn performs comperatively poorly to the other methods, though much better than chance.
+
+Logistic regression has the advantage of being able to interpret, since we know to what scale each covariate interact with the response by looking at their coefficients. This, in addition to being the best predictive model, makes it the best model to use.
+
+## c)
+The correct option is:
+(iii) We multiply by 2.038.
+
+## d)
+```{r}
+penguins.sub<- subset(penguins,select = c(body_mass_g,flipper_length_mm,species))
+ggpairs(penguins.sub,aes(color = species))[2,1]
+```
+
+
+
+# Problem 4
+## a) 
+
+* i) True
+* ii) False
+* iii) False
+* iv) False
+
+## b)
+```{r 4b, eval=TRUE, echo=TRUE}
+id <- "1chRpybM5cJn4Eow3-_xwDKPKyddL9M2N" # google file ID
+d.chd <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
+#Fitting a regression and using it to predict the probability
+fit.chd<-glm(chd~.,family = binomial,data=d.chd)
+summary(fit.chd)
+probchd<-predict(fit.chd,data.frame(sex = 1, sbp = 150, smoking=0),type= "response")
+cat("The probability that a non-smoking male with a sbp=150 in the given dataset gets chd is",probchd)
+```
+
+
+## c) 
+We chose to implement the bootstrap ourself instead of using the boot function.
+```{r 4c, eval=TRUE, echo=TRUE}
+#Defining the function bootstrapping samples from
+#Return the predicted probability of cdf given the parameters
+boot.fn<-function(data,index){
+  fit.chd<- glm(chd~.,family = binomial, data = d.chd, subset = index)
+  return(predict(fit.chd,data.frame(sex = 1, sbp = 150, smoking=0),type= "response"))
+}
+#Own implementation of boot
+prob.vec<-c()
+for(i in 1:1000){
+  index <- sample(dim(d.chd)[1],dim(d.chd)[1],replace = T)
+  prob.vec[i]<-boot.fn(d.chd,index)
+}
+cat("Predicted probability from the bootstrap is:",mean(prob.vec),"\n")
+cat("Predicted standard error form the bootstrap is:",sd(prob.vec),"\n")
+cat("The 95% quantiles is:\n")
+quantile(prob.vec,c(0.0275,0.975))
+```
+
+
+
+## d)
+* i) False
+* ii) False
+* iii) True
+* iv) True
