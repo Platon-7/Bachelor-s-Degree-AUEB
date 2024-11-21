@@ -1,0 +1,119 @@
+music	system	sex	height	weight	shoe	month	color	pet	number	prob	math
+rock	windows	M	1.90	80	46	jun	blue	dog	63	5	8
+hiphop	windows	M	1.93	95	46	nov	purple	dog	34	5.5	8.5
+pop	windows	F	1.63	65	39	feb	orange	dog	88	6.5	5.5
+rock	windows	F	1.65	100	40	aug	blue	dog	97	5.5	5.5
+electronic	windows	F	1.65	56	38	jul	blue	dog	21	8.5	10
+rock	windows	M	1.8	90	43	apr	red	cat	6	5	5
+pop	unix	M	1.73	1.65	41	apr	black	cat	64	0	0
+hiphop	windows	M	1.83	100	45	aug	black	dog	3		5
+pop	windows	F	1.56	50	38	apr	black		57	7	6
+rock	windows	M	1.84	80	43	mar	green	dog	43	5	5
+hiphop	windows	M	1.82	76	44.5	oct	red	dog	15	6	8
+laika	windows	M	1.74	77	44	jan	black	dog	65	2	6
+hiphop	windows	M	1.85	95	45	oct	black	hamster	69	10	10
+metal	windows	M	1.7	68	41	sep	green	dog	30	7.5	8
+rock	windows	M	1.78	83	42	dec	green	dog	99	6	
+laika	windows	M	1.83	95	45	mar	red	dog	32	8.5	10
+rock	windows	M	1.85	90	45	apr	purple	dog	14		
+pop	windows	M	1.91	85	44	may	black	dog	5	5	5.5
+rock	windows	F	1.61	49	38	apr	blue	cat	45	6	5.5
+rock	windows	M	1.79	76	45	sep	purple	cat	8		
+rock	unix	M	1.83	70	44	nov	green	dog	77	8	8
+rock	windows	M	1.79		43	mar	black	dog	77		
+pop	windows	F	1.78	65	42.5	aug	black	dog	6		
+rock	windows	M	1.90	83	45	nov	black	dog	91	7	5.5
+hiphop	windows	M	1.75	80	43	jul	purple	cat	100	7	10
+rock	windows	M	1.73	95	43	oct	black	dog	75	8	8
+jazz	unix	M	1.80	75	43	apr	yellow	dog	89	7.5	5
+laika	macos	F	1.63	60	38	feb	red	dog	80	9	10
+rock	macos	F	1.70	50	38	oct	blue	dog	99	5	7
+hiphop	windows	M	1.77	80	45	jun	black	cat	45	4	5.5
+	macos	M	1.8	68	42	jul	white	dog	20		6
+pop	windows	F	1.77	63	40	jul	black	dog	99	9	8.5
+rock	windows	F	1.65	58	38	nov	blue	rabbit	88	0	4
+pop	windows		1.57	47	37	may	purple	dog	1	5	6.5
+	unix	M	1.85	65	41	jan	gray	dog	99	9	8.5
+hiphop	windows	M	1.83	87	46	dec	blue	dog	31	6.5	6.5
+rock	windows	M	1.85	71	46	jul	black	dog	29	7.5	7
+rock	windows	M	1.67	60	42	sep	black	dog	88	5	7
+hiphop	windows	F	1.78	53	40	oct	pink	cat	47	5	6.5
+electronic	windows	M	1.69	53	41	jan	purple	dog	66	5.5	5.5
+metal	windows	M	1.78	75	42	sep	red	cat	16	9.5	6.5
+rock	windows	F	1.62	62	36.5	nov	petrol	cat	36	10	7
+folk	windows	M	1.94	95	475	jan	green	dog	12	9	6.5
+pop	windows	M	1.82	89	46	feb	black	dog	22	6	5
+electronic	windows	M	1.63	105	42	jul	green	fish	73	6	6.5
+pop	windows	F	1.6	45	38	jul	blue	dog	100	5.5	6
+metal	windows	M	1.8	73	43	oct	blue	cat	1	6.5	10
+pop	windows	F	1.75	53	39	feb	purple	dog	78	6	6
+pop	windows	F	1.68	62	39	sep	purple	cat	28	9.5	5.5
+rock	windows	F	1.7	52	39	aug	purple	dog	78	5.5	8.5
+electronic	windows	M	1.78	83		feb	blue	dog	57	6	6
+pop	windows	M	1.84	80	45	jul	purple	hedgehog	69	7	9
+classical	windows	M	1.71	69	44	jun	black	cat	73	5.5	6
+hiphop	windows	M	1.80	70	43	may	cyan 	dog	69	8	8
+pop	windows	M	1.82	76	45	jan	red	cat	88	5	5
+electronic	windows	M	1.76	77	43	nov	black	fish	73	9.5	10
+metal	windows	M	1.85	75	45	oct	black	dog	4	7	5
+laika	windows	F	1.58	49	38	jul	green	dog	96	8.5	9.5
+hiphop	windows	M	1.81	67	43.5	jun	red	dog	77	6	5
+hiphop	windows	M	1.65	70	42	mar	green	dog	47	7	7
+pop	windows	F	1.64	52	39	nov	blue	dog	63	6.5	6.5
+hiphop	windows	M	1.78	76	43	jan	red	dog	5	5.5	
+pop	windows	M	1.89	73	45	may	blue	cat	50	7	6
+rock	windows	M	1.73	58	41	mar	blue	dog	19	6.5	5
+laika	windows	M	1.74	82.5	42	may	black	dog	33	5	5
+pop	windows	F	1.7	60	41	feb	black	dog	14	4	6.5
+rock	windows	M	1.79	78	44	oct	red	dog	12	7	7
+pop	windows	F	1.6	53	36	aug	purple	cat	7	5	5
+jazz	unix	F	1.69	67	44	oct	green	dog	93	9	7
+pop	unix	M	1.83	84	47	oct	red	dog	65	6	6
+electronic	windows	M	1.8	77	45	jan	cyan	chameleon	5	7.5	8
+rock	windows	F	1.54	51	38.5	mar	blue	dog	16	8	7.5
+electronic	windows		1.90	84	45	feb	red	cat	100	5.5	5
+metal	windows	M	1.80	94	44	feb	white	cat	77	7	7
+electronic	windows	M	1.71	57	41	oct	blue	cat	34	10	10
+hiphop	windows	M	1.7	65	41	feb	black	dog	24		7.5
+hiphop	windows	M	1.7	65	44	jul	black	dog	4	9	6
+hiphop	windows	M	1.85	68	45	jan	red	dog	65		
+electronic	windows	M	1.87	80	43	aug	purple	dog	99	5	6
+pop	macos	F	1.67	66	38	jun	red	dog	67	6.5	8.5
+hiphop	windows	F	1.85	94	45	jul	white	dog	21	8	8
+hiphop	windows	M	1.83	73	46	nov	blue	cat	83	10	0
+pop	windows	F	1.65	65	38.5	jun	cyangreen/petrol	dog	72	7	8
+pop	windows	F	1.60	52	37	aug	purple	dog	50	5.5	7.5
+hiphop	windows	M	1.81	72	43	jul	blue	dog	64	6	6.5
+hiphop	windows	M	1.81	79	43	nov	red	cat	12		
+metal	windows	M	1.74	75	42	mar	white	dog	99	6.5	5
+rock	windows	M	1.74	75	42	aug	white	cat	99	7	5
+laika	windows	M	1.87	96	46	dec	green	dog	14	6.5	5
+metal	windows	M	1.87	100 	46	sep	purple	dog	73	3.5	3
+pop	windows	F	1.77	62	42	feb	blue	dog	16	9.5	6.5
+pop	windows	M	1.8	77	45	jan	red	dog	60	0	0
+laika	windows	M	1.75	71	43	feb	yellow	dog	87	10	8.5
+rock	windows	M	176	74	42	sep	black	cat	73		
+rock	windows	M	1.78	79	43	nov	blue	dog	78	6	9
+electronic	windows	M	1.74	73	43	feb	black	dog	99		5.5
+metal	windows	M	1.80	64	42.5	apr	blue	dog	61	8	6
+rock	windows	F	1.58	45	37	dec	red	cat	56		5
+laika	windows	M	1.88	93	45.5	may	purple	dog	733	6	8.5
+metal	windows	F	1.85	78	45.5	dec	yellow	cat	69	6	6
+rock	windows	F	1.62	58	37	oct	black	cat	7	7.5	
+pop	windows	F	1.65	62	39	jan	pink	cat	99	9	9.5
+pop	windows	F	1.60	46	37	aug	red	dog	67	8.5	8.5
+folk	windows	M	1.78	73.2	44	aug	blue	dog	74	6	8
+rock	windows	M				sep	blue	cat	93	5	
+rock	macos	M	1.8	83	44.5	nov	purple	dog	8	6	5.5
+electronic	unix	M	1.77	72	42	aug	blue	cat	56	5	5
+classical	windows	M					orange		86	10.5	
+hiphop	windows	M	1.74	75	43	apr	black	cat	63	5	
+pop	macos	F	1.68	55	38	jun	black	dog	50	5	
+electronic	windows	M	1.75	67	42.5	feb	red	cat	68	5	7
+hiphop	windows	M	1.72	82.5	42	mar	red	dog	1	0	6
+metal	windows	F	1.66	58	38	dec	purple	dog	17	7	6
+hiphop	unix	M	1.8	107	46	dec	black	cat	59	4	5
+laika	macos	F	1.67	58	38	jul	purple	dog	27		7
+laika	macos	F	1.67	58	38	jul	purple	dog	27		7
+rock	windows	F	1.60	48	37	sep	orange	dog	2	7.5	10
+rock	windows	F	1.7	60	38	aug	blue	cat	13	6.5	9.5
