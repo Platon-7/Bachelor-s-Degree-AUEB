@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CreateTeamPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.r4</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CreateTeamPresenter (com.r4)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CreateTeamPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (26/ 26)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.r4;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.util.Log;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import com.dao.CourseDAO;
+<i>6</i>&nbsp;import com.dao.ProjectDAO;
+<i>7</i>&nbsp;import com.dao.StudentDAO;
+<i>8</i>&nbsp;import com.dao.TeamDAO;
+<i>9</i>&nbsp;import com.memorydao.CourseMemory;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import java.util.ArrayList;
+<i>12</i>&nbsp;import java.util.List;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;public class CreateTeamPresenter {
+<i>15</i>&nbsp;    private CreateTeamView view;
+<i>16</i>&nbsp;    private CourseDAO courseDAO;
+<i>17</i>&nbsp;    private ProjectDAO projectDAO;
+<i>18</i>&nbsp;    private StudentDAO studentDAO;
+<i>19</i>&nbsp;    private TeamDAO teamDAO;
+<b class="fc"><i>20</i>&nbsp;    public CreateTeamPresenter() {</b>
+<i>21</i>&nbsp;
+<b class="fc"><i>22</i>&nbsp;    }</b>
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    public void setView(CreateTeamView view) {
+<b class="fc"><i>25</i>&nbsp;        this.view = view;</b>
+<b class="fc"><i>26</i>&nbsp;    }</b>
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    public void setCourseDAO(CourseDAO courseDAO) {
+<b class="fc"><i>29</i>&nbsp;        this.courseDAO = courseDAO;</b>
+<b class="fc"><i>30</i>&nbsp;    }</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    public void setProjectDAO(ProjectDAO projectDAO) {
+<b class="fc"><i>33</i>&nbsp;        this.projectDAO = projectDAO;</b>
+<b class="fc"><i>34</i>&nbsp;    }</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    public void setStudentDAO(StudentDAO studentDAO) {
+<b class="fc"><i>37</i>&nbsp;        this.studentDAO = studentDAO;</b>
+<b class="fc"><i>38</i>&nbsp;    }</b>
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    public void setTeamDAO(TeamDAO teamDAO) {
+<b class="fc"><i>41</i>&nbsp;        this.teamDAO = teamDAO;</b>
+<b class="fc"><i>42</i>&nbsp;    }</b>
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    public void createTeam(String course, String user, String requirements){
+<b class="fc"><i>45</i>&nbsp;        if(courseDAO.findCourse(course)){</b>
+<b class="fc"><i>46</i>&nbsp;            if(!requirements.equals(&quot;&quot;)) {</b>
+<b class="fc"><i>47</i>&nbsp;                if (!teamDAO.checksTeams(studentDAO.findStudent(user).getTeams(), course)) {</b>
+<b class="fc"><i>48</i>&nbsp;                    ArrayList&lt;Student&gt; members = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>49</i>&nbsp;                    members.add(studentDAO.findStudent(user));</b>
+<b class="fc"><i>50</i>&nbsp;                    Team newTeam = new Team(projectDAO.findProject(course), studentDAO.findStudent(user), members, requirements);</b>
+<b class="fc"><i>51</i>&nbsp;                    studentDAO.findStudent(user).addTeams(newTeam);</b>
+<b class="fc"><i>52</i>&nbsp;                        teamDAO.saveTeam(newTeam);</b>
+<b class="fc"><i>53</i>&nbsp;                    view.showSuccess(&quot;Team creation was successful&quot;);</b>
+<b class="fc"><i>54</i>&nbsp;                } else {</b>
+<b class="fc"><i>55</i>&nbsp;                        view.showErrorCheckTeams(&quot;You are already registered with a team for &quot;+course);</b>
+<i>56</i>&nbsp;                }
+<i>57</i>&nbsp;            }else{
+<b class="fc"><i>58</i>&nbsp;                view.showErrorRequirements(&quot;Requirements cannot be empty...&quot;);</b>
+<i>59</i>&nbsp;            }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;        }else{
+<b class="fc"><i>62</i>&nbsp;            view.showErrorCourse(&quot;Course may not have a project or else check your input...&quot;);</b>
+<i>63</i>&nbsp;        }
+<i>64</i>&nbsp;
+<b class="fc"><i>65</i>&nbsp;    }</b>
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 21:20</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Student</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.r4</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Student (com.r4)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Student</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/ 24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    61.8%
+  </span>
+  <span class="absValue">
+    (76/ 123)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.r4;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.text.ParseException;
+<i>6</i>&nbsp;import java.text.SimpleDateFormat;
+<i>7</i>&nbsp;import java.util.ArrayList;
+<i>8</i>&nbsp;import java.util.Date;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;public class Student {
+<i>11</i>&nbsp;
+<b class="fc"><i>12</i>&nbsp;    String name = null;</b>
+<b class="fc"><i>13</i>&nbsp;    String surname = null;</b>
+<b class="fc"><i>14</i>&nbsp;    String AM = null;</b>
+<b class="fc"><i>15</i>&nbsp;    String password = null;</b>
+<b class="fc"><i>16</i>&nbsp;    String email = null;</b>
+<b class="fc"><i>17</i>&nbsp;    String skills = null;</b>
+<b class="fc"><i>18</i>&nbsp;    String timeline;</b>
+<b class="fc"><i>19</i>&nbsp;    ArrayList&lt;Team&gt; teams = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>20</i>&nbsp;    ArrayList&lt;Request&gt; requests = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>21</i>&nbsp;    ArrayList&lt;Evaluation&gt; evaluations = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>22</i>&nbsp;    ArrayList&lt;Evaluation&gt; evaluated = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>23</i>&nbsp;</b>
+<b class="fc"><i>24</i>&nbsp;</b>
+<b class="fc"><i>25</i>&nbsp;    public Student() {</b>
+<i>26</i>&nbsp;
+<b class="fc"><i>27</i>&nbsp;    }</b>
+<i>28</i>&nbsp;
+<b class="fc"><i>29</i>&nbsp;    public Student(String name, String surname, String AM, String password, String email, String skills, String timeline) {</b>
+<b class="fc"><i>30</i>&nbsp;        this.name = name;</b>
+<b class="fc"><i>31</i>&nbsp;        this.surname = surname;</b>
+<b class="fc"><i>32</i>&nbsp;        this.AM = AM;</b>
+<b class="fc"><i>33</i>&nbsp;        this.password = password;</b>
+<b class="fc"><i>34</i>&nbsp;        this.email = email;</b>
+<b class="fc"><i>35</i>&nbsp;        this.skills = skills;</b>
+<b class="fc"><i>36</i>&nbsp;        this.timeline = timeline;</b>
+<b class="fc"><i>37</i>&nbsp;    }</b>
+<b class="fc"><i>38</i>&nbsp;</b>
+<b class="fc"><i>39</i>&nbsp;    public String getName() {</b>
+<b class="fc"><i>40</i>&nbsp;        return name;</b>
+<i>41</i>&nbsp;    }
+<b class="nc"><i>42</i>&nbsp;</b>
+<i>43</i>&nbsp;    public String getSurname() {
+<b class="fc"><i>44</i>&nbsp;        return surname;</b>
+<i>45</i>&nbsp;    }
+<b class="nc"><i>46</i>&nbsp;</b>
+<i>47</i>&nbsp;    public String getAM() {
+<b class="fc"><i>48</i>&nbsp;        return AM;</b>
+<i>49</i>&nbsp;    }
+<b class="fc"><i>50</i>&nbsp;</b>
+<i>51</i>&nbsp;    public String getPassword() {
+<b class="fc"><i>52</i>&nbsp;        return password;</b>
+<i>53</i>&nbsp;    }
+<b class="nc"><i>54</i>&nbsp;</b>
+<i>55</i>&nbsp;    public String getEmail() {
+<b class="fc"><i>56</i>&nbsp;        return email;</b>
+<i>57</i>&nbsp;    }
+<b class="nc"><i>58</i>&nbsp;</b>
+<i>59</i>&nbsp;    public String getSkills() {
+<b class="fc"><i>60</i>&nbsp;        return skills;</b>
+<i>61</i>&nbsp;    }
+<b class="nc"><i>62</i>&nbsp;</b>
+<i>63</i>&nbsp;    public String getTimeline() {
+<b class="fc"><i>64</i>&nbsp;        return timeline;</b>
+<i>65</i>&nbsp;    }
+<b class="nc"><i>66</i>&nbsp;</b>
+<i>67</i>&nbsp;    public void setPassword(String password) {
+<b class="fc"><i>68</i>&nbsp;        this.password = password;</b>
+<b class="fc"><i>69</i>&nbsp;    }</b>
+<b class="nc"><i>70</i>&nbsp;</b>
+<b class="nc"><i>71</i>&nbsp;    public void setSkills(String skills) {</b>
+<b class="fc"><i>72</i>&nbsp;        this.skills = skills;</b>
+<b class="fc"><i>73</i>&nbsp;    }</b>
+<b class="nc"><i>74</i>&nbsp;</b>
+<b class="nc"><i>75</i>&nbsp;    public void setTimeline(String timeline) {</b>
+<b class="fc"><i>76</i>&nbsp;        this.timeline = timeline;</b>
+<b class="fc"><i>77</i>&nbsp;    }</b>
+<b class="nc"><i>78</i>&nbsp;</b>
+<b class="nc"><i>79</i>&nbsp;    public void addTeams(Team team) {</b>
+<b class="fc"><i>80</i>&nbsp;        teams.add(team);</b>
+<b class="fc"><i>81</i>&nbsp;    }</b>
+<b class="nc"><i>82</i>&nbsp;</b>
+<b class="nc"><i>83</i>&nbsp;    public boolean evaluate(int evaluation, Student evaluatee,Team team) {</b>
+<b class="fc"><i>84</i>&nbsp;            Date d1 = new Date();</b>
+<b class="fc"><i>85</i>&nbsp;            Date d2 = new Date();</b>
+<b class="nc"><i>86</i>&nbsp;</b>
+<b class="fc"><i>87</i>&nbsp;            SimpleDateFormat sdformat = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</b>
+<i>88</i>&nbsp;            try {
+<b class="fc"><i>89</i>&nbsp;                d1 = sdformat.parse(team.getProject().getDeadline());</b>
+<b class="fc"><i>90</i>&nbsp;                d2 = java.util.Calendar.getInstance().getTime();</b>
+<b class="nc"><i>91</i>&nbsp;            } catch (ParseException e) {</b>
+<b class="nc"><i>92</i>&nbsp;                e.printStackTrace();</b>
+<b class="fc"><i>93</i>&nbsp;            }</b>
+<b class="fc"><i>94</i>&nbsp;            if (d1.compareTo(d2) &lt; 0) {</b>
+<b class="fc"><i>95</i>&nbsp;                Evaluation eval = new Evaluation(this, evaluatee, evaluation,team);</b>
+<b class="fc"><i>96</i>&nbsp;                evaluations.add(eval);</b>
+<b class="fc"><i>97</i>&nbsp;                evaluatee.getEvaluated().add(eval);</b>
+<b class="fc"><i>98</i>&nbsp;                return true;</b>
+<b class="nc"><i>99</i>&nbsp;            }</b>
+<b class="nc"><i>100</i>&nbsp;            return false;</b>
+<b class="nc"><i>101</i>&nbsp;</b>
+<b class="nc"><i>102</i>&nbsp;    }</b>
+<i>103</i>&nbsp;
+<b class="nc"><i>104</i>&nbsp;    public Request sendRequest(Team appl_team) {</b>
+<b class="fc"><i>105</i>&nbsp;        Request req = new Request(this, appl_team);</b>
+<b class="fc"><i>106</i>&nbsp;        requests.add(req);</b>
+<b class="fc"><i>107</i>&nbsp;        return req;</b>
+<i>108</i>&nbsp;    }
+<b class="nc"><i>109</i>&nbsp;</b>
+<b class="nc"><i>110</i>&nbsp;    public Team createTeam(Project project, String requirements) {</b>
+<b class="fc"><i>111</i>&nbsp;        ArrayList&lt;Student&gt; members = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>112</i>&nbsp;        members.add(this);</b>
+<b class="fc"><i>113</i>&nbsp;        Team team = new Team(project, this, members, requirements);</b>
+<b class="fc"><i>114</i>&nbsp;        teams.add(team);</b>
+<b class="fc"><i>115</i>&nbsp;        return team;</b>
+<b class="nc"><i>116</i>&nbsp;    }</b>
+<b class="nc"><i>117</i>&nbsp;</b>
+<b class="nc"><i>118</i>&nbsp;    public void createAccount() {</b>
+<b class="fc"><i>119</i>&nbsp;        Account account = new Account(this);</b>
+<b class="fc"><i>120</i>&nbsp;    }</b>
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;    public void setName(String name) {
+<b class="fc"><i>123</i>&nbsp;        this.name = name;</b>
+<b class="fc"><i>124</i>&nbsp;    }</b>
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;    public void setSurname(String surname) {
+<b class="fc"><i>127</i>&nbsp;        this.surname = surname;</b>
+<b class="fc"><i>128</i>&nbsp;    }</b>
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;    public void removeRequest(Request request) {
+<b class="fc"><i>131</i>&nbsp;        for(int i=0;i&lt;requests.size();i++){</b>
+<b class="nc"><i>132</i>&nbsp;            if(requests.get(i).getSender().getAM().equals(request.getSender().getAM())</b>
+<b class="nc"><i>133</i>&nbsp;                    &amp;&amp;requests.get(i).getApplicationTeam().getProject().getCourse().getTitle().equals(request.getApplicationTeam().getProject().getCourse().getTitle())){</b>
+<b class="nc"><i>134</i>&nbsp;                requests.remove(request);</b>
+<b class="nc"><i>135</i>&nbsp;                break;</b>
+<b class="nc"><i>136</i>&nbsp;            }</b>
+<b class="nc"><i>137</i>&nbsp;        }</b>
+<b class="fc"><i>138</i>&nbsp;    }</b>
+<b class="nc"><i>139</i>&nbsp;    public boolean checkEvaluation(Student evaluatee,Team team){</b>
+<b class="fc"><i>140</i>&nbsp;        for(int i=0;i&lt;evaluations.size();i++) {</b>
+<b class="nc"><i>141</i>&nbsp;            if (evaluations.get(i).evaluator.getAM().equals(this.getAM()) &amp;&amp;</b>
+<b class="nc"><i>142</i>&nbsp;                    evaluations.get(i).getEvaluatee().getAM().equals(evaluatee.getAM())&amp;&amp;</b>
+<b class="nc"><i>143</i>&nbsp;                    evaluations.get(i).getTeam().getProject().getCourse().getTitle().equals(team.getProject().getCourse().getTitle())){</b>
+<b class="nc"><i>144</i>&nbsp;                    return false;</b>
+<b class="nc"><i>145</i>&nbsp;            }</b>
+<b class="nc"><i>146</i>&nbsp;        }</b>
+<b class="fc"><i>147</i>&nbsp;        return true;</b>
+<b class="nc"><i>148</i>&nbsp;    }</b>
+<i>149</i>&nbsp;    public ArrayList&lt;Evaluation&gt; getEvaluated() {
+<b class="fc"><i>150</i>&nbsp;        return evaluated;</b>
+<b class="nc"><i>151</i>&nbsp;    }</b>
+<i>152</i>&nbsp;    public double getTotalEvaluation(){
+<b class="fc"><i>153</i>&nbsp;        int total=0;</b>
+<b class="fc"><i>154</i>&nbsp;        for(int i=0;i&lt;evaluated.size();i++){</b>
+<b class="nc"><i>155</i>&nbsp;            total+=evaluated.get(i).getGrade();</b>
+<i>156</i>&nbsp;        }
+<b class="fc"><i>157</i>&nbsp;        return (double)total/evaluated.size();</b>
+<b class="nc"><i>158</i>&nbsp;    }</b>
+<b class="nc"><i>159</i>&nbsp;    public ArrayList&lt;Team&gt; getTeams() {</b>
+<b class="fc"><i>160</i>&nbsp;        return teams;</b>
+<b class="nc"><i>161</i>&nbsp;    }</b>
+<i>162</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 21:20</div>
+</div>
+</body>
+</html>

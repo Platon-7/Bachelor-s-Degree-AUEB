@@ -1,0 +1,16 @@
+com/test/ExampleInstrumentedTest.java
+ com.test.ExampleInstrumentedTest
+com/r4/test/BuildConfig.java
+ com.r4.test.BuildConfig
+com/r4/MenuPresenterTest.java
+ com.r4.MenuPresenterTest
+com/r4/SignUpPresenterTest.java
+ com.r4.SignUpPresenterTest
+com/r4/CreateTeamPresenterTest.java
+ com.r4.CreateTeamPresenterTest
+com/r4/EditInfoPresenterTest.java
+ com.r4.EditInfoPresenterTest
+com/r4/RegisterProjectPresenterTest.java
+ com.r4.RegisterProjectPresenterTest
+com/r4/LoginPresenterTest.java
+ com.r4.LoginPresenterTest

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>140</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+SearchUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>140</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+TeamsUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>140</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+TeamsCreationUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>230</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;control&gt;&gt;
+SearchController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>330</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Teams</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>140</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+AccountUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>230</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;control&gt;&gt;
+AccountController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>330</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Account</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>330</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Skills</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>330</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+ErrorLog</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

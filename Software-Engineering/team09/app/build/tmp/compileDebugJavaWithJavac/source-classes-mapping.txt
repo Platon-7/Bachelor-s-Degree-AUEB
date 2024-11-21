@@ -1,0 +1,190 @@
+com/r4/Course.java
+ com.r4.Course
+com/r4/StudentFragment.java
+ com.r4.StudentFragment
+ com.r4.StudentFragment$OnStudentListener
+com/r4/MenuPresenter.java
+ com.r4.MenuPresenter
+com/r4/LoginView.java
+ com.r4.LoginView
+com/r4/BuildConfig.java
+ com.r4.BuildConfig
+com/r4/RegisterProject.java
+ com.r4.RegisterProject
+ com.r4.RegisterProject$1
+com/dao/CourseDAO.java
+ com.dao.CourseDAO
+com/r4/databinding/FragmentItemBinding.java
+ com.r4.databinding.FragmentItemBinding
+com/memorydao/InitializerMemory.java
+ com.memorydao.InitializerMemory
+com/r4/MenuViewModel.java
+ com.r4.MenuViewModel
+com/r4/databinding/ActivitySignUpBinding.java
+ com.r4.databinding.ActivitySignUpBinding
+com/dao/RequestDAO.java
+ com.dao.RequestDAO
+com/r4/RequestFragment.java
+ com.r4.RequestFragment
+ com.r4.RequestFragment$OnRequestListener
+com/r4/CreateTeam.java
+ com.r4.CreateTeam
+ com.r4.CreateTeam$1
+com/r4/Team.java
+ com.r4.Team
+com/memorydao/RequestMemory.java
+ com.memorydao.RequestMemory
+com/memorydao/TeamMemory.java
+ com.memorydao.TeamMemory
+com/r4/MyTeamFragment.java
+ com.r4.MyTeamFragment
+ com.r4.MyTeamFragment$OnMyTeamListener
+com/r4/MyTeams.java
+ com.r4.MyTeams
+com/dao/TeamDAO.java
+ com.dao.TeamDAO
+com/r4/CreateTeamView.java
+ com.r4.CreateTeamView
+com/r4/EditInfo.java
+ com.r4.EditInfo
+ com.r4.EditInfo$1
+ com.r4.EditInfo$2
+ com.r4.EditInfo$3
+com/r4/LoginScreen.java
+ com.r4.LoginScreen
+ com.r4.LoginScreen$1
+ com.r4.LoginScreen$2
+com/memorydao/ProjectMemory.java
+ com.memorydao.ProjectMemory
+com/r4/databinding/ActivityMenuBinding.java
+ com.r4.databinding.ActivityMenuBinding
+com/r4/TeamFragment.java
+ com.r4.TeamFragment
+ com.r4.TeamFragment$OnInteractionListener
+com/r4/TeamRecyclerViewAdapter.java
+ com.r4.TeamRecyclerViewAdapter
+ com.r4.TeamRecyclerViewAdapter$1
+ com.r4.TeamRecyclerViewAdapter$ViewHolder
+com/r4/SignUpViewStub.java
+ com.r4.SignUpViewStub
+com/r4/CreateTeamPresenter.java
+ com.r4.CreateTeamPresenter
+com/memorydao/StudentMemory.java
+ com.memorydao.StudentMemory
+com/r4/MyTeamRecyclerViewAdapter.java
+ com.r4.MyTeamRecyclerViewAdapter
+ com.r4.MyTeamRecyclerViewAdapter$1
+ com.r4.MyTeamRecyclerViewAdapter$ViewHolder
+com/r4/SignUpView.java
+ com.r4.SignUpView
+com/r4/databinding/FragmentItem2Binding.java
+ com.r4.databinding.FragmentItem2Binding
+com/r4/MenuView.java
+ com.r4.MenuView
+com/r4/TeamOverview.java
+ com.r4.TeamOverview
+com/r4/databinding/FragmentItem3Binding.java
+ com.r4.databinding.FragmentItem3Binding
+com/r4/CreateTeamViewStub.java
+ com.r4.CreateTeamViewStub
+com/r4/RegisterProjectPresenter.java
+ com.r4.RegisterProjectPresenter
+com/r4/databinding/ActivityCreateTeamBinding.java
+ com.r4.databinding.ActivityCreateTeamBinding
+com/r4/databinding/FragmentItem4Binding.java
+ com.r4.databinding.FragmentItem4Binding
+com/r4/SignUpPresenter.java
+ com.r4.SignUpPresenter
+com/r4/EditInfoPresenter.java
+ com.r4.EditInfoPresenter
+com/memorydao/CourseMemory.java
+ com.memorydao.CourseMemory
+com/r4/databinding/ActivityTeamOverviewBinding.java
+ com.r4.databinding.ActivityTeamOverviewBinding
+com/r4/EditInfoView.java
+ com.r4.EditInfoView
+com/r4/LoginPresenter.java
+ com.r4.LoginPresenter
+com/r4/CreateTeamViewModel.java
+ com.r4.CreateTeamViewModel
+com/r4/SignUpViewModel.java
+ com.r4.SignUpViewModel
+com/r4/EditInfoViewModel.java
+ com.r4.EditInfoViewModel
+com/r4/RegisterProjectViewModel.java
+ com.r4.RegisterProjectViewModel
+com/r4/databinding/FragmentItemList2Binding.java
+ com.r4.databinding.FragmentItemList2Binding
+com/r4/EditInfoViewStub.java
+ com.r4.EditInfoViewStub
+com/r4/databinding/ActivityRegisterProjectBinding.java
+ com.r4.databinding.ActivityRegisterProjectBinding
+com/r4/Evaluation.java
+ com.r4.Evaluation
+com/r4/StudentRecyclerViewAdapter.java
+ com.r4.StudentRecyclerViewAdapter
+ com.r4.StudentRecyclerViewAdapter$1
+ com.r4.StudentRecyclerViewAdapter$ViewHolder
+com/r4/RegisterProjectViewStub.java
+ com.r4.RegisterProjectViewStub
+com/r4/RequestRecyclerViewAdapter.java
+ com.r4.RequestRecyclerViewAdapter
+ com.r4.RequestRecyclerViewAdapter$1
+ com.r4.RequestRecyclerViewAdapter$2
+ com.r4.RequestRecyclerViewAdapter$ViewHolder
+com/dao/ProjectDAO.java
+ com.dao.ProjectDAO
+com/r4/SearchResults.java
+ com.r4.SearchResults
+com/r4/databinding/ActivityMessagesBinding.java
+ com.r4.databinding.ActivityMessagesBinding
+com/dao/StudentDAO.java
+ com.dao.StudentDAO
+com/r4/LoginScreenViewModel.java
+ com.r4.LoginScreenViewModel
+com/r4/Messages.java
+ com.r4.Messages
+com/r4/databinding/FragmentItemList3Binding.java
+ com.r4.databinding.FragmentItemList3Binding
+com/r4/databinding/FragmentItemListBinding.java
+ com.r4.databinding.FragmentItemListBinding
+com/r4/RegisterProjectView.java
+ com.r4.RegisterProjectView
+com/r4/databinding/ActivitySearchResultsBinding.java
+ com.r4.databinding.ActivitySearchResultsBinding
+com/r4/databinding/FragmentItemList4Binding.java
+ com.r4.databinding.FragmentItemList4Binding
+com/r4/Account.java
+ com.r4.Account
+com/dao/Initializer.java
+ com.dao.Initializer
+com/r4/LoginViewStub.java
+ com.r4.LoginViewStub
+com/r4/databinding/ActivityEditInfoBinding.java
+ com.r4.databinding.ActivityEditInfoBinding
+com/r4/Student.java
+ com.r4.Student
+com/r4/Request.java
+ com.r4.Request
+com/r4/Project.java
+ com.r4.Project
+com/r4/databinding/ActivityMyTeamsBinding.java
+ com.r4.databinding.ActivityMyTeamsBinding
+com/r4/SignUp.java
+ com.r4.SignUp
+ com.r4.SignUp$1
+com/dao/AccountDAO.java
+ com.dao.AccountDAO
+com/memorydao/AccountMemory.java
+ com.memorydao.AccountMemory
+com/r4/databinding/ActivityLoginScreenBinding.java
+ com.r4.databinding.ActivityLoginScreenBinding
+com/r4/Menu.java
+ com.r4.Menu
+ com.r4.Menu$1
+ com.r4.Menu$2
+ com.r4.Menu$3
+ com.r4.Menu$4
+ com.r4.Menu$5
+com/r4/MenuViewStub.java
+ com.r4.MenuViewStub

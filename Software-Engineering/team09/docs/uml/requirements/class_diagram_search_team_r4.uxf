@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>320</y>
+      <w>300</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>SearchResults
+--
+- course: String
+- user: String
+- teamDAO: TeamDAO
+- studentDAO: StudentDAO
+--
++ onCreate()
++ TeamSelection()
++ getTeams()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>320</y>
+      <w>300</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>RequestRecycleViewAdapter
+--
+requests: List&lt;Requests&gt;
+listener: RequestFragment.OnRequestListener
+--
++ RequestRecyclerViewAdapter()
++ onCreateViewHolder()
++ onBindViewHolder()
++ getItemCount()
++ removeAt()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>570</y>
+      <w>250</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>StudentMemory
+--
+- students: List&lt;Student&gt;
+--
++ getStudents()
++ findStudent()
++ saveStudent()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>550</y>
+      <w>250</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>TeamMemory
+--
+- teams: List&lt;Teams&gt;
+--
++ saveTeam()
++ findRequest()
++ findTeam()
++ getAvailableTeams()
++ checksTeams()
++ myTeamMembers()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>570</y>
+      <w>250</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>requestMemory
+--
+requests: List&lt;Request&gt;
+--
++ saveRequest()
++ getRequests()
++ deleteRequest()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>180</y>
+      <w>600</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>saves
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;20.0;570.0;20.0;570.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>190</x>
+      <y>380</y>
+      <w>210</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>saves
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>190.0;20.0;10.0;20.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>460</y>
+      <w>90</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>searches
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>380</y>
+      <w>180</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>extracts
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0;160.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>420</y>
+      <w>150</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>searches
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0;130.0;130.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>130</y>
+      <w>250</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>StudentMemory
+--
+- students: List&lt;Students&gt;
+--
++ getStudents()
++ findStudent()
++ saveStudent()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>320</y>
+      <w>250</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>TeamMemory
+--
+- teams: List&lt;Teams&gt;
+--
++ saveTeam()
++ findRequest()
++ findTeam()
++ getAvailableTeams()
++ checksTeams()
++ myTeamMembers()
++</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>600</y>
+      <w>250</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>CourseMemory
+--
+- courses: List&lt;Course&gt;
+--
++ getAvailableCourse()
++ findCourse()
++ saveCourse()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>320</y>
+      <w>280</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>CreateTeam
+--
+- courses: List&lt;Course&gt;
+- user: String
+- requirements: String
+- course: String
+--
++ onCreate()
++ showErrorCourse()
++ showErrorRequirements()
++ showSuccess()
++ showErrorCheckTeams()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>400</y>
+      <w>280</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>searches
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0;260.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>830</x>
+      <y>470</y>
+      <w>320</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>interacts
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;190.0;290.0;190.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>170</y>
+      <w>270</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>creates
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>360</y>
+      <w>560</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+saves
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;540.0;20.0</additional_attributes>
+  </element>
+</diagram>

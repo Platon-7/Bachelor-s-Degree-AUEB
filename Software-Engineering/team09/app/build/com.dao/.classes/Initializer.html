@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Initializer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Initializer (com.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Initializer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (82/ 82)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.util.Log;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import com.r4.Account;
+<i>6</i>&nbsp;import com.r4.Course;
+<i>7</i>&nbsp;import com.r4.Evaluation;
+<i>8</i>&nbsp;import com.r4.Project;
+<i>9</i>&nbsp;import com.r4.Request;
+<i>10</i>&nbsp;import com.r4.Student;
+<i>11</i>&nbsp;import com.r4.Team;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import java.util.ArrayList;
+<i>14</i>&nbsp;
+<b class="fc"><i>15</i>&nbsp;public abstract class Initializer {</b>
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    public void prepareData() {
+<b class="fc"><i>18</i>&nbsp;        Course soft_eng = new Course(&quot;Software Engineering&quot;);</b>
+<b class="fc"><i>19</i>&nbsp;        Course dist_systems = new Course(&quot;Distributed Systems&quot;);</b>
+<b class="fc"><i>20</i>&nbsp;        Course databases = new Course(&quot;Databases&quot;);</b>
+<b class="fc"><i>21</i>&nbsp;        getCourseDao().saveCourse(databases);</b>
+<b class="fc"><i>22</i>&nbsp;        getCourseDao().saveCourse(soft_eng);</b>
+<b class="fc"><i>23</i>&nbsp;        getCourseDao().saveCourse(dist_systems);</b>
+<i>24</i>&nbsp;
+<b class="fc"><i>25</i>&nbsp;        Project databases_project = new Project(databases, 3, &quot;07/12/2021&quot;);</b>
+<b class="fc"><i>26</i>&nbsp;        Project r4 = new Project(soft_eng, 3, &quot;08/06/2021&quot;);</b>
+<b class="fc"><i>27</i>&nbsp;        Project tik_tok = new Project(dist_systems, 4, &quot;13/06/2021&quot;);</b>
+<b class="fc"><i>28</i>&nbsp;        getProjectDAO().saveProject(r4);</b>
+<b class="fc"><i>29</i>&nbsp;        getProjectDAO().saveProject(tik_tok);</b>
+<b class="fc"><i>30</i>&nbsp;        getProjectDAO().saveProject(databases_project);</b>
+<i>31</i>&nbsp;
+<b class="fc"><i>32</i>&nbsp;        Student kleio = new Student(&quot;Kleio&quot;, &quot;Patatsi&quot;, &quot;p3180266&quot;, &quot;monoaek&quot;, &quot;kleiopat@gmail.com&quot;, &quot;not filled yet&quot;, &quot;monday-friday mornings&quot;);</b>
+<b class="fc"><i>33</i>&nbsp;        Student platonas = new Student(&quot;Platonas&quot;, &quot;Karageorgis&quot;, &quot;p3180068&quot;, &quot;olimpiakara&quot;, &quot;karaplato@gmail.com&quot;, &quot;java,Computer science,Artificial Intelligence&quot;, &quot;only afternoons&quot;);</b>
+<b class="fc"><i>34</i>&nbsp;        Student denis = new Student(&quot;Denis&quot;, &quot;Diamantis&quot;, &quot;p3150129&quot;, &quot;denasxoloume&quot;, &quot;denisdiam@gmail.com&quot;, &quot;c++,android&quot;, &quot;weekend all day,weekday varies from work &quot;);</b>
+<b class="fc"><i>35</i>&nbsp;        Student nikos = new Student(&quot;Nikos&quot;, &quot;Ioannou&quot;, &quot;p3180200&quot;, &quot;nikos318&quot;, &quot;nikos@gmail.com&quot;, &quot;not filled yet&quot;, &quot;all mornings&quot;);</b>
+<b class="fc"><i>36</i>&nbsp;        Student kostas = new Student(&quot;Kostas&quot;, &quot;Karageorgis&quot;, &quot;p3180008&quot;, &quot;kostas318&quot;, &quot;kostas@gmail.com&quot;, &quot;java,maths,Artificial Intelligence&quot;, &quot;only afternoons and weekends&quot;);</b>
+<b class="fc"><i>37</i>&nbsp;        Student giannis = new Student(&quot;Giannis&quot;, &quot;Chatzis&quot;, &quot;p3150139&quot;, &quot;giannis315&quot;, &quot;giannis@gmail.com&quot;, &quot;c++,java,python,sql&quot;, &quot;monday,thursday mornings else all others days afteroon&quot;);</b>
+<b class="fc"><i>38</i>&nbsp;        Student maria = new Student(&quot;Maria&quot;, &quot;Deli&quot;, &quot;p3180066&quot;, &quot;maria318&quot;, &quot;maria@gmail.com&quot;, &quot;not filled yet&quot;, &quot;monday-friday mornings,weekend afternoons&quot;);</b>
+<b class="fc"><i>39</i>&nbsp;        Student dimitris = new Student(&quot;Dimitris&quot;, &quot;Avgeris&quot;, &quot;p3180069&quot;, &quot;dimitris318&quot;, &quot;dimitris@gmail.com&quot;, &quot;java,Computer science,android development,javascript&quot;, &quot;only mornings&quot;);</b>
+<b class="fc"><i>40</i>&nbsp;        Student admin = new Student(&quot;Giorgos&quot;, &quot;Giapitzakis&quot;, &quot;admin&quot;, &quot;adminpower&quot;, &quot;georgegp@gmail.com&quot;, &quot;null&quot;, &quot;null&quot;);</b>
+<i>41</i>&nbsp;
+<b class="fc"><i>42</i>&nbsp;        Account nikos_account = new Account(nikos);</b>
+<b class="fc"><i>43</i>&nbsp;        Account kostas_account = new Account(kostas);</b>
+<b class="fc"><i>44</i>&nbsp;        Account giannis_account = new Account(giannis);</b>
+<b class="fc"><i>45</i>&nbsp;        Account maria_account = new Account(maria);</b>
+<b class="fc"><i>46</i>&nbsp;        Account dimitris_account = new Account(dimitris);</b>
+<b class="fc"><i>47</i>&nbsp;        Account admin_account = new Account(admin);</b>
+<b class="fc"><i>48</i>&nbsp;        Account kleio_account = new Account(kleio);</b>
+<b class="fc"><i>49</i>&nbsp;        Account platonas_account = new Account(platonas);</b>
+<b class="fc"><i>50</i>&nbsp;        Account denis_account = new Account(denis);</b>
+<i>51</i>&nbsp;
+<b class="fc"><i>52</i>&nbsp;        ArrayList&lt;Student&gt; membersR4 = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>53</i>&nbsp;        membersR4.add(kleio);</b>
+<b class="fc"><i>54</i>&nbsp;        membersR4.add(platonas);</b>
+<b class="fc"><i>55</i>&nbsp;        Team team_r4 = new Team(r4, platonas, membersR4, &quot;Programming mindset,good understanding of software engineering,must have passed java&quot;);</b>
+<b class="fc"><i>56</i>&nbsp;        kleio.addTeams(team_r4);</b>
+<b class="fc"><i>57</i>&nbsp;        platonas.addTeams(team_r4);</b>
+<b class="fc"><i>58</i>&nbsp;        ArrayList&lt;Student&gt; membersTikTok = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>59</i>&nbsp;        membersTikTok.add(denis);</b>
+<b class="fc"><i>60</i>&nbsp;        membersTikTok.add(platonas);</b>
+<b class="fc"><i>61</i>&nbsp;        Team team_tik_tok = new Team(tik_tok, denis, membersTikTok, &quot;Must have completed Operating Systems,know sockets and multithreading in java&quot;);</b>
+<b class="fc"><i>62</i>&nbsp;        denis.addTeams(team_tik_tok);</b>
+<b class="fc"><i>63</i>&nbsp;        platonas.addTeams(team_tik_tok);</b>
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;        nikos.evaluate(5, kleio, team_r4);</b>
+<b class="fc"><i>67</i>&nbsp;        maria.evaluate(4, kleio, team_r4);</b>
+<b class="fc"><i>68</i>&nbsp;        getTeamDAO().saveTeam(team_r4);</b>
+<b class="fc"><i>69</i>&nbsp;        getTeamDAO().saveTeam(team_tik_tok);</b>
+<i>70</i>&nbsp;
+<b class="fc"><i>71</i>&nbsp;        getAccountDAO().saveAccount(kleio_account);</b>
+<b class="fc"><i>72</i>&nbsp;        getAccountDAO().saveAccount(platonas_account);</b>
+<b class="fc"><i>73</i>&nbsp;        getAccountDAO().saveAccount(denis_account);</b>
+<b class="fc"><i>74</i>&nbsp;        getAccountDAO().saveAccount(nikos_account);</b>
+<b class="fc"><i>75</i>&nbsp;        getAccountDAO().saveAccount(kostas_account);</b>
+<b class="fc"><i>76</i>&nbsp;        getAccountDAO().saveAccount(giannis_account);</b>
+<b class="fc"><i>77</i>&nbsp;        getAccountDAO().saveAccount(maria_account);</b>
+<b class="fc"><i>78</i>&nbsp;        getAccountDAO().saveAccount(dimitris_account);</b>
+<b class="fc"><i>79</i>&nbsp;        getAccountDAO().setAdminAccount(admin_account);</b>
+<i>80</i>&nbsp;
+<b class="fc"><i>81</i>&nbsp;        getTeamDAO().saveTeam(team_r4);</b>
+<b class="fc"><i>82</i>&nbsp;        getTeamDAO().saveTeam(team_tik_tok);</b>
+<b class="fc"><i>83</i>&nbsp;        getStudentDAO().saveStudent(denis);</b>
+<b class="fc"><i>84</i>&nbsp;        getStudentDAO().saveStudent(kleio);</b>
+<b class="fc"><i>85</i>&nbsp;        getStudentDAO().saveStudent(platonas);</b>
+<b class="fc"><i>86</i>&nbsp;        getStudentDAO().saveStudent(nikos);</b>
+<b class="fc"><i>87</i>&nbsp;        getStudentDAO().saveStudent(kostas);</b>
+<b class="fc"><i>88</i>&nbsp;        getStudentDAO().saveStudent(giannis);</b>
+<b class="fc"><i>89</i>&nbsp;        getStudentDAO().saveStudent(maria);</b>
+<b class="fc"><i>90</i>&nbsp;        getStudentDAO().saveStudent(dimitris);</b>
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;
+<b class="fc"><i>93</i>&nbsp;        Request request_denis = new Request(denis, team_r4);</b>
+<b class="fc"><i>94</i>&nbsp;        Request request_kleio = new Request(kleio, team_tik_tok);</b>
+<b class="fc"><i>95</i>&nbsp;        Request request_giannis = new Request(giannis, team_tik_tok);</b>
+<b class="fc"><i>96</i>&nbsp;        Request request_dimitris = new Request(denis, team_tik_tok);</b>
+<b class="fc"><i>97</i>&nbsp;        Request request_nikos = new Request(nikos, team_tik_tok);</b>
+<b class="fc"><i>98</i>&nbsp;        team_r4.addRequests(request_denis);</b>
+<b class="fc"><i>99</i>&nbsp;        team_tik_tok.addRequests(request_kleio);</b>
+<b class="fc"><i>100</i>&nbsp;        team_tik_tok.addRequests(request_giannis);</b>
+<b class="fc"><i>101</i>&nbsp;        team_tik_tok.addRequests(request_dimitris);</b>
+<b class="fc"><i>102</i>&nbsp;        team_tik_tok.addRequests(request_nikos);</b>
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;
+<b class="fc"><i>105</i>&nbsp;        getRequestDAO().saveRequest(request_kleio);</b>
+<b class="fc"><i>106</i>&nbsp;        getRequestDAO().saveRequest(request_denis);</b>
+<b class="fc"><i>107</i>&nbsp;        getRequestDAO().saveRequest(request_giannis);</b>
+<b class="fc"><i>108</i>&nbsp;        getRequestDAO().saveRequest(request_dimitris);</b>
+<b class="fc"><i>109</i>&nbsp;        getRequestDAO().saveRequest(request_nikos);</b>
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;
+<b class="fc"><i>112</i>&nbsp;    }</b>
+<i>113</i>&nbsp;    public abstract AccountDAO getAccountDAO();
+<i>114</i>&nbsp;
+<i>115</i>&nbsp;    public abstract TeamDAO getTeamDAO();
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;    public abstract RequestDAO getRequestDAO();
+<i>118</i>&nbsp;
+<i>119</i>&nbsp;    public abstract StudentDAO getStudentDAO();
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;    public abstract CourseDAO getCourseDao();
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;    public abstract ProjectDAO getProjectDAO();
+<i>124</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 21:20</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+com/r4/CourseTest.java
+ com.r4.CourseTest
+com/r4/ProjectTest.java
+ com.r4.ProjectTest
+com/r4/TeamTest.java
+ com.r4.TeamTest
+com/r4/StudentTest.java
+ com.r4.StudentTest
+com/r4/AccountTest.java
+ com.r4.AccountTest
+com/r4/RequestTest.java
+ com.r4.RequestTest
+com/test/ExampleUnitTest.java
+ com.test.ExampleUnitTest
+com/r4/EvaluationTest.java
+ com.r4.EvaluationTest
+com/r4/CreateTeamPresenterTest1.java
+ com.r4.CreateTeamPresenterTest1
+com/r4/RegisterProjectPresenterTest1.java
+ com.r4.RegisterProjectPresenterTest1
+com/r4/EditInfoPresenterTest1.java
+ com.r4.EditInfoPresenterTest1
+com/r4/LoginPresenterTest1.java
+ com.r4.LoginPresenterTest1
+com/r4/MenuPresenterTest1.java
+ com.r4.MenuPresenterTest1
+com/r4/SignUpPresenterTest1.java
+ com.r4.SignUpPresenterTest1

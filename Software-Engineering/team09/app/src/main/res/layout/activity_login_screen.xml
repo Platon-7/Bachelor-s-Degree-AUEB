@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginScreen">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_your_credentials"
+        android:textColor="#0E0A0A"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="202dp" />
+
+    <EditText
+        android:id="@+id/AM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/am"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textShortMessage|textPersonName|text|textPassword|textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/AM"
+        app:layout_constraintStart_toStartOf="@+id/AM"
+        app:layout_constraintTop_toBottomOf="@+id/AM" />
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/login"
+        app:backgroundTint="#931515"
+        app:layout_constraintEnd_toEndOf="@+id/Password"
+        app:layout_constraintStart_toStartOf="@+id/Password"
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
+
+    <Button
+        android:id="@+id/SignUp"
+        android:layout_width="205dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/create_new_account"
+        app:backgroundTint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="@+id/Login"
+        app:layout_constraintStart_toStartOf="@+id/Login"
+        app:layout_constraintTop_toBottomOf="@+id/Login" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

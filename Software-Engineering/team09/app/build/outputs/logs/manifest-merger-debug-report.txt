@@ -1,0 +1,248 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+MERGED from [androidx.databinding:viewbinding:4.2.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7ec8981c08724f4330f0f8eb8afa20f9\viewbinding-4.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\3c882dad9c8f0249472d4f10b443d67e\navigation-ui-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\c3dac2b9beee82a8be92c74b44b10c74\material-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ab55248c1f6e4e8c5923d9d299bc0cb7\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\db57bc68350d11fd71bcba320dd20e68\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ecbf8ad7e6dea3c44dc442192af932ad\navigation-fragment-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\c1ad8cfee54f3719ed8e2dcc2eb1b648\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\fd7c9c16339defc3ac2677022ca3e3cc\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\4ee6b37eb9c21996562614dcc4bcffdf\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\0559403f10280f3e921fb25f047adafa\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\568344d7fea9e52c189b801516f66764\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7953cf79f832504dd222f41122247f43\appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ac422c4990c69b5810d251bfc33f0bfd\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\da117f440f6b8840d0b54d69d228e4ae\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\5e87d8c05302561fbe271266c8a86ee6\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\cea53c1185ac76221fda9f162026c830\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\be1fc7a8d04470818f9a91caf125c3e0\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\3fb8852b498b9a9b35e5a1b5eb118300\fragment-1.2.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ba1ce663160e5efb89d923e2360f7f50\drawerlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9ad31650a8e19cb6faaed1faafaeee94\transition-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\2985f7919f3e3fb8419bcc65af2aed10\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\8856b440074d64cb1bfff53c57de3e12\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\315a666c8c18b4f47007ea0ac1aeca2b\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9458265fecb3727bc28a39f5a5f3fb59\media-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\4487ce39a50f903211827ed9d128da83\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7ccabedd1202928c9745e933dad7f4b7\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b121fc41abfddfcc7458e85abc258d7d\navigation-runtime-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\e62bd30f26201a6a4cdf8600f5cc83e7\activity-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\61e9de5667659d5431a99857b24fe1a8\navigation-common-2.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\bde98bbc2b4e0a6d6b9997fc5aae3ab1\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b8837410f15b8286d9bf3d4dd066d7a3\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6872e3e8db378884a0bc9f102bb32fb0\core-1.3.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\838df983c17e09820a00852c093452d0\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\404bf0e6b516c6672e44c04fb416ce40\lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\349858b43d8ec4361770c3257e298df1\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ffedb0a91bfa8352b62dbbed6e8fba90\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\a7d67eb6248f5607b6a56dff0f8b35b0\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\50ca23d71e730e75f69884a37f7287b7\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9fe828bdab05ca568b86ecc51b1e0187\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\e04a5ee58bdd73e897ef96c5888a3e0c\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\37b059734b5d418557946082b1538512\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\5a2da0a837d74067b09fff5adf09941b\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b4205515811533a91c63f11e4b51a022\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6a35021c393cb333be1990972c1a4826\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ceb9dc33be3a720fa966cc9533e1796a\annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+	package
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:3:5-21
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:5:5-30:19
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\c3dac2b9beee82a8be92c74b44b10c74\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\c3dac2b9beee82a8be92c74b44b10c74\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ab55248c1f6e4e8c5923d9d299bc0cb7\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ab55248c1f6e4e8c5923d9d299bc0cb7\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6872e3e8db378884a0bc9f102bb32fb0\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6872e3e8db378884a0bc9f102bb32fb0\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\838df983c17e09820a00852c093452d0\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\838df983c17e09820a00852c093452d0\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6872e3e8db378884a0bc9f102bb32fb0\core-1.3.1\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:11:9-49
+activity#com.r4.EditInfo
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:12:9-55
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:12:19-43
+activity#com.r4.RegisterProject
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:13:9-53
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:13:19-50
+activity#com.r4.TeamOverview
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:14:9-50
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:14:19-47
+activity#com.r4.MyTeams
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:15:9-45
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:15:19-42
+activity#com.r4.Messages
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:16:9-46
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:16:19-43
+activity#com.r4.CreateTeam
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:17:9-48
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:17:19-45
+activity#com.r4.SearchResults
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:18:9-51
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:18:19-48
+activity#com.r4.SignUp
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:19:9-44
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:19:19-41
+activity#com.r4.Menu
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:20:9-22:39
+	android:exported
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:22:13-36
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:21:13-33
+activity#com.r4.LoginScreen
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:23:9-29:20
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:23:19-46
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:24:13-28:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:25:17-69
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:25:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:27:17-77
+	android:name
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml:27:27-74
+uses-sdk
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:4.2.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7ec8981c08724f4330f0f8eb8afa20f9\viewbinding-4.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:4.2.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7ec8981c08724f4330f0f8eb8afa20f9\viewbinding-4.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\3c882dad9c8f0249472d4f10b443d67e\navigation-ui-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\3c882dad9c8f0249472d4f10b443d67e\navigation-ui-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\c3dac2b9beee82a8be92c74b44b10c74\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\c3dac2b9beee82a8be92c74b44b10c74\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ab55248c1f6e4e8c5923d9d299bc0cb7\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ab55248c1f6e4e8c5923d9d299bc0cb7\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\db57bc68350d11fd71bcba320dd20e68\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\db57bc68350d11fd71bcba320dd20e68\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ecbf8ad7e6dea3c44dc442192af932ad\navigation-fragment-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ecbf8ad7e6dea3c44dc442192af932ad\navigation-fragment-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\c1ad8cfee54f3719ed8e2dcc2eb1b648\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\c1ad8cfee54f3719ed8e2dcc2eb1b648\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\fd7c9c16339defc3ac2677022ca3e3cc\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\fd7c9c16339defc3ac2677022ca3e3cc\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\4ee6b37eb9c21996562614dcc4bcffdf\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\4ee6b37eb9c21996562614dcc4bcffdf\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\0559403f10280f3e921fb25f047adafa\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\0559403f10280f3e921fb25f047adafa\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\568344d7fea9e52c189b801516f66764\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\568344d7fea9e52c189b801516f66764\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7953cf79f832504dd222f41122247f43\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7953cf79f832504dd222f41122247f43\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ac422c4990c69b5810d251bfc33f0bfd\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ac422c4990c69b5810d251bfc33f0bfd\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\da117f440f6b8840d0b54d69d228e4ae\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\da117f440f6b8840d0b54d69d228e4ae\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\5e87d8c05302561fbe271266c8a86ee6\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\5e87d8c05302561fbe271266c8a86ee6\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\cea53c1185ac76221fda9f162026c830\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\cea53c1185ac76221fda9f162026c830\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\be1fc7a8d04470818f9a91caf125c3e0\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\be1fc7a8d04470818f9a91caf125c3e0\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\3fb8852b498b9a9b35e5a1b5eb118300\fragment-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\3fb8852b498b9a9b35e5a1b5eb118300\fragment-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ba1ce663160e5efb89d923e2360f7f50\drawerlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ba1ce663160e5efb89d923e2360f7f50\drawerlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9ad31650a8e19cb6faaed1faafaeee94\transition-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9ad31650a8e19cb6faaed1faafaeee94\transition-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\2985f7919f3e3fb8419bcc65af2aed10\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\2985f7919f3e3fb8419bcc65af2aed10\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\8856b440074d64cb1bfff53c57de3e12\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\8856b440074d64cb1bfff53c57de3e12\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\315a666c8c18b4f47007ea0ac1aeca2b\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\315a666c8c18b4f47007ea0ac1aeca2b\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9458265fecb3727bc28a39f5a5f3fb59\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9458265fecb3727bc28a39f5a5f3fb59\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\4487ce39a50f903211827ed9d128da83\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\4487ce39a50f903211827ed9d128da83\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7ccabedd1202928c9745e933dad7f4b7\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\7ccabedd1202928c9745e933dad7f4b7\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b121fc41abfddfcc7458e85abc258d7d\navigation-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b121fc41abfddfcc7458e85abc258d7d\navigation-runtime-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\e62bd30f26201a6a4cdf8600f5cc83e7\activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\e62bd30f26201a6a4cdf8600f5cc83e7\activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\61e9de5667659d5431a99857b24fe1a8\navigation-common-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.3.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\61e9de5667659d5431a99857b24fe1a8\navigation-common-2.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\bde98bbc2b4e0a6d6b9997fc5aae3ab1\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\bde98bbc2b4e0a6d6b9997fc5aae3ab1\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b8837410f15b8286d9bf3d4dd066d7a3\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b8837410f15b8286d9bf3d4dd066d7a3\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6872e3e8db378884a0bc9f102bb32fb0\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6872e3e8db378884a0bc9f102bb32fb0\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\838df983c17e09820a00852c093452d0\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\838df983c17e09820a00852c093452d0\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\404bf0e6b516c6672e44c04fb416ce40\lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\404bf0e6b516c6672e44c04fb416ce40\lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\349858b43d8ec4361770c3257e298df1\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\349858b43d8ec4361770c3257e298df1\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ffedb0a91bfa8352b62dbbed6e8fba90\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ffedb0a91bfa8352b62dbbed6e8fba90\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\a7d67eb6248f5607b6a56dff0f8b35b0\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\a7d67eb6248f5607b6a56dff0f8b35b0\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\50ca23d71e730e75f69884a37f7287b7\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\50ca23d71e730e75f69884a37f7287b7\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9fe828bdab05ca568b86ecc51b1e0187\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\9fe828bdab05ca568b86ecc51b1e0187\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\e04a5ee58bdd73e897ef96c5888a3e0c\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\e04a5ee58bdd73e897ef96c5888a3e0c\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\37b059734b5d418557946082b1538512\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\37b059734b5d418557946082b1538512\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\5a2da0a837d74067b09fff5adf09941b\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\5a2da0a837d74067b09fff5adf09941b\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b4205515811533a91c63f11e4b51a022\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\b4205515811533a91c63f11e4b51a022\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6a35021c393cb333be1990972c1a4826\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\6a35021c393cb333be1990972c1a4826\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ceb9dc33be3a720fa966cc9533e1796a\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Platon\.gradle\caches\transforms-2\files-2.1\ceb9dc33be3a720fa966cc9533e1796a\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Platon\Desktop\OPA\SOFTWARE TECHNOLOGY\team09-master\team09\team09\app\src\main\AndroidManifest.xml

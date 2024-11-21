@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SearchResults</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.r4</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SearchResults (com.r4)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SearchResults</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.r4;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import android.content.Intent;
+<i>6</i>&nbsp;import android.os.Bundle;
+<i>7</i>&nbsp;import android.os.Message;
+<i>8</i>&nbsp;import android.util.Log;
+<i>9</i>&nbsp;import android.widget.Toast;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import com.dao.AccountDAO;
+<i>12</i>&nbsp;import com.dao.RequestDAO;
+<i>13</i>&nbsp;import com.dao.StudentDAO;
+<i>14</i>&nbsp;import com.dao.TeamDAO;
+<i>15</i>&nbsp;import com.memorydao.AccountMemory;
+<i>16</i>&nbsp;import com.memorydao.RequestMemory;
+<i>17</i>&nbsp;import com.memorydao.StudentMemory;
+<i>18</i>&nbsp;import com.memorydao.TeamMemory;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;import java.util.ArrayList;
+<i>21</i>&nbsp;import java.util.List;
+<i>22</i>&nbsp;
+<b class="nc"><i>23</i>&nbsp;public class SearchResults extends AppCompatActivity implements TeamFragment.OnInteractionListener {</b>
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    public static final String COURSE_NAME_KEYWORD = &quot;course_name_keyword&quot;;
+<i>26</i>&nbsp;    private TeamDAO teamDAO;
+<i>27</i>&nbsp;    private StudentDAO studentDAO;
+<b class="nc"><i>28</i>&nbsp;    private RequestDAO requestDAO =new RequestMemory();</b>
+<i>29</i>&nbsp;    private String user;
+<i>30</i>&nbsp;    private String course;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    @Override
+<i>33</i>&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>34</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>35</i>&nbsp;        teamDAO=new TeamMemory();</b>
+<b class="nc"><i>36</i>&nbsp;        studentDAO=new StudentMemory();</b>
+<b class="nc"><i>37</i>&nbsp;        Intent intent = getIntent();</b>
+<b class="nc"><i>38</i>&nbsp;        user = intent.getStringExtra(Menu.CURRENT_USER_AM);</b>
+<b class="nc"><i>39</i>&nbsp;        course = intent.getStringExtra(Menu.COURSE_SEARCH);</b>
+<b class="nc"><i>40</i>&nbsp;        setContentView(R.layout.activity_search_results);</b>
+<b class="nc"><i>41</i>&nbsp;        setTitle(&quot;Search Results&quot;);</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    @Override
+<i>45</i>&nbsp;    public void TeamSelection(Team team) {
+<b class="nc"><i>46</i>&nbsp;        Student student = studentDAO.findStudent(user);</b>
+<b class="nc"><i>47</i>&nbsp;        Request request = student.sendRequest(team);</b>
+<b class="nc"><i>48</i>&nbsp;        if (!teamDAO.findRequest(team,request)) {</b>
+<b class="nc"><i>49</i>&nbsp;            team.addRequests(request);</b>
+<b class="nc"><i>50</i>&nbsp;            requestDAO.saveRequest(request);</b>
+<b class="nc"><i>51</i>&nbsp;            Toast.makeText(getApplicationContext(), &quot;Successfully applied&quot;, Toast.LENGTH_SHORT).show();</b>
+<i>52</i>&nbsp;        } else {
+<b class="nc"><i>53</i>&nbsp;            Toast.makeText(getApplicationContext(), &quot;Application already made&quot;, Toast.LENGTH_SHORT).show();</b>
+<i>54</i>&nbsp;        }
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    @Override
+<i>58</i>&nbsp;    public List&lt;Team&gt; getTeams() {
+<b class="nc"><i>59</i>&nbsp;        return teamDAO.getAvailableTeams(studentDAO.findStudent(user).teams,course);</b>
+<i>60</i>&nbsp;    }
+<i>61</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 21:20</div>
+</div>
+</body>
+</html>
