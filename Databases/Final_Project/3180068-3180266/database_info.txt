@@ -1,0 +1,4 @@
+Endpoint: <platonprojectbeta.csq7kkvhnsif.us-east-1.rds.amazonaws.com>
+Username: <examiner>
+Password: <examiner7>
+Database: <Platon_Database_Beta>

@@ -1,0 +1,265 @@
+ΓΙΑ ΤΟ ΠΡΩΤΟ QUERY ΤΗΣ ΕΚΦΩΝΗΣΗΣ
+SELECT Host.id, COUNT(*)
+FROM Listing, Host 
+WHERE Host.id=Listing.host_id GROUP BY Host.id; 
+
+PLANS BEFORE INDEXES:
+"QUERY PLAN"
+"HashAggregate  (cost=3273.70..3337.33 rows=6363 width=12) (actual time=23.316..25.087 rows=6363 loops=1)"
+"  Group Key: host.id"
+"  ->  Hash Join  (cost=255.26..3215.99 rows=11541 width=4) (actual time=3.459..18.945 rows=11541 loops=1)"
+"        Hash Cond: (listing.host_id = host.id)"
+"        ->  Seq Scan on listing  (cost=0.00..2930.41 rows=11541 width=4) (actual time=0.004..4.039 rows=11541 loops=1)"
+"        ->  Hash  (cost=175.73..175.73 rows=6363 width=4) (actual time=3.420..3.420 rows=6363 loops=1)"
+"              Buckets: 8192  Batches: 1  Memory Usage: 288kB"
+"              ->  Index Only Scan using host_pkey on host  (cost=0.28..175.73 rows=6363 width=4) (actual time=0.011..1.623 rows=6363 loops=1)"
+"                    Heap Fetches: 0"
+"Planning time: 0.186 ms"
+"Execution time: 26.357 ms"
+
+
+PLANS AFTER INDEXES:
+"QUERY PLAN"
+"HashAggregate  (cost=652.69..716.32 rows=6363 width=12) (actual time=16.129..17.953 rows=6363 loops=1)"
+"  Group Key: host.id"
+"  ->  Hash Join  (cost=255.55..594.98 rows=11541 width=4) (actual time=3.464..12.002 rows=11541 loops=1)"
+"        Hash Cond: (listing.host_id = host.id)"
+"        ->  Index Only Scan using ekquery2 on listing  (cost=0.29..309.40 rows=11541 width=4) (actual time=0.015..2.975 rows=11541 loops=1)"
+"              Heap Fetches: 0"
+"        ->  Hash  (cost=175.73..175.73 rows=6363 width=4) (actual time=3.416..3.416 rows=6363 loops=1)"
+"              Buckets: 8192  Batches: 1  Memory Usage: 288kB"
+"              ->  Index Only Scan using ekquery on host  (cost=0.28..175.73 rows=6363 width=4) (actual time=0.014..1.601 rows=6363 loops=1)"
+"                    Heap Fetches: 0"
+"Planning time: 0.210 ms"
+"Execution time: 19.226 ms"
+/* Query Εκφώνησης 1: w/out index: 26.357 ms; w/index: 19.226 ms */
+/* Ο χρόνος μειώνεται κατά 7ms περίπου, η διαφορά μετά την δημιουργία indexes πάνω στα πεδία που χρησιμοποιεί το query είναι πολύ μεγάλη
+
+ΓΙΑ ΤΟ ΔΕΥΤΕΡΟ QUERY ΤΗΣ ΕΚΦΩΝΗΣΗΣ /*ΔΙΟΡΘΩΜΕΝΟ*/
+EXPLAIN ANALYZE SELECT id, price.price 
+FROM Listing, Price 
+WHERE listing.guests_included > 5 AND price.price > 40;
+ 
+PLANS BEFORE INDEXES:
+"QUERY PLAN"
+"Nested Loop  (cost=0.00..22776.90 rows=1561824 width=8) (actual time=0.122..960.056 rows=1507072 loops=1)"
+"  ->  Seq Scan on price  (cost=0.00..294.26 rows=6732 width=4) (actual time=0.008..4.032 rows=6728 loops=1)"
+"        Filter: (price > '40'::numeric)"
+"        Rows Removed by Filter: 4813"
+"  ->  Materialize  (cost=0.00..2960.42 rows=232 width=4) (actual time=0.000..0.049 rows=224 loops=6728)"
+"        ->  Seq Scan on listing  (cost=0.00..2959.26 rows=232 width=4) (actual time=0.110..9.920 rows=224 loops=1)"
+"              Filter: (guests_included > 5)"
+"              Rows Removed by Filter: 11317"
+"Planning time: 0.090 ms"
+"Execution time: 1231.038 ms"
+
+PLANS AFTER INDEXES
+"QUERY PLAN"
+"Nested Loop  (cost=6.37..20434.16 rows=1561824 width=8) (actual time=0.083..933.880 rows=1507072 loops=1)"
+"  ->  Index Only Scan using ek2query on price  (cost=0.29..198.09 rows=6732 width=4) (actual time=0.035..2.513 rows=6728 loops=1)"
+"        Index Cond: (price > '40'::numeric)"
+"        Heap Fetches: 0"
+"  ->  Materialize  (cost=6.08..713.85 rows=232 width=4) (actual time=0.000..0.046 rows=224 loops=6728)"
+"        ->  Bitmap Heap Scan on listing  (cost=6.08..712.69 rows=232 width=4) (actual time=0.045..0.287 rows=224 loops=1)"
+"              Recheck Cond: (guests_included > 5)"
+"              Heap Blocks: exact=212"
+"              ->  Bitmap Index Scan on ek2query2  (cost=0.00..6.03 rows=232 width=0) (actual time=0.021..0.022 rows=224 loops=1)"
+"                    Index Cond: (guests_included > 5)"
+"Planning time: 0.118 ms"
+"Execution time: 1205.569 ms"
+/* Query Εκφώνησης 2: w/out index: 1231.038 ms; w/index: 1205.569 ms */
+/* Μετά την προσθήκη ευρετηρίων ο χρόνος μειώθηκε κατά 24ms ωστόσο συνολικά τα indexes σε αυτή την περίπτωση αν και μειώσανε το χρόνο εκτέλεσης δεν έκαναν μεγάλη διαφορά
+
+ΓΙΑ ΤΟ QUERY 1:
+SELECT room.listing_id, room.bedrooms,price.extra_people
+FROM ROOM
+LEFT OUTER JOIN PRICE
+ON room.listing_id = price.listing_id
+WHERE bedrooms >= 3 AND price.price<400;
+
+PLANS BEFORE INDEXES:
+"QUERY PLAN"
+"Hash Join  (cost=789.49..1113.90 rows=973 width=14) (actual time=2.479..9.503 rows=938 loops=1)"
+"  Hash Cond: (price.listing_id = room.listing_id)"
+"  ->  Seq Scan on price  (cost=0.00..294.26 rows=11481 width=10) (actual time=0.005..4.023 rows=11467 loops=1)"
+"        Filter: (price < '400'::numeric)"
+"        Rows Removed by Filter: 74"
+"  ->  Hash  (cost=777.26..777.26 rows=978 width=8) (actual time=2.455..2.455 rows=978 loops=1)"
+"        Buckets: 1024  Batches: 1  Memory Usage: 47kB"
+"        ->  Seq Scan on room  (cost=0.00..777.26 rows=978 width=8) (actual time=0.002..2.136 rows=978 loops=1)"
+"              Filter: (bedrooms >= 3)"
+"              Rows Removed by Filter: 10563"
+"Planning time: 0.177 ms"
+"Execution time: 9.705 ms"
+
+PLANS AFTER INDEXES:
+"QUERY PLAN"
+"Hash Join  (cost=706.19..1030.60 rows=964 width=14) (actual time=1.174..8.311 rows=938 loops=1)"
+"  Hash Cond: (price.listing_id = room.listing_id)"
+"  ->  Seq Scan on price  (cost=0.00..294.26 rows=11481 width=10) (actual time=0.005..4.143 rows=11467 loops=1)"
+"        Filter: (price < '400'::numeric)"
+"        Rows Removed by Filter: 74"
+"  ->  Hash  (cost=694.07..694.07 rows=969 width=8) (actual time=1.150..1.150 rows=978 loops=1)"
+"        Buckets: 1024  Batches: 1  Memory Usage: 47kB"
+"        ->  Bitmap Heap Scan on room  (cost=19.79..694.07 rows=969 width=8) (actual time=0.151..0.871 rows=978 loops=1)"
+"              Recheck Cond: (bedrooms >= 3)"
+"              Heap Blocks: exact=499"
+"              ->  Bitmap Index Scan on query1a  (cost=0.00..19.55 rows=969 width=0) (actual time=0.097..0.098 rows=978 loops=1)"
+"                    Index Cond: (bedrooms >= 3)"
+"Planning time: 0.218 ms"
+"Execution time: 8.517 ms"
+/* Query 1: w/out index: 9.705 ms; w/index: 8.517 ms */
+/* Φυσιολογικά μειώνεται ο χρόνος εκτέλεσης καθώς το search πλέον γίνεται γρηγορότερα, αφού με τα ευρετήρια κατευθύνεται η βάση αμέσως στα room.bedrooms, price.price */
+
+ΓΙΑ ΤΟ QUERY 2:
+SELECT AVG(price.price), location.neighbourhood_cleansed
+FROM PRICE
+LEFT OUTER JOIN LOCATION
+ON price.listing_id=location.listing_id
+GROUP BY location.neighbourhood_cleansed;
+
+PLANS BEFORE INDEXES:
+"QUERY PLAN"
+"HashAggregate  (cost=974.48..975.04 rows=45 width=61) (actual time=22.181..22.212 rows=45 loops=1)"
+"  Group Key: location.neighbourhood_cleansed"
+"  ->  Hash Right Join  (cost=409.67..916.77 rows=11541 width=33) (actual time=6.868..17.021 rows=11541 loops=1)"
+"        Hash Cond: (location.listing_id = price.listing_id)"
+"        ->  Seq Scan on location  (cost=0.00..348.41 rows=11541 width=33) (actual time=0.003..2.835 rows=11541 loops=1)"
+"        ->  Hash  (cost=265.41..265.41 rows=11541 width=8) (actual time=6.844..6.844 rows=11541 loops=1)"
+"              Buckets: 16384  Batches: 1  Memory Usage: 624kB"
+"              ->  Seq Scan on price  (cost=0.00..265.41 rows=11541 width=8) (actual time=0.008..3.335 rows=11541 loops=1)"
+"Planning time: 0.101 ms"
+"Execution time: 22.269 ms"
+
+
+PLANS AFTER INDEXES:
+"QUERY PLAN"
+"HashAggregate  (cost=974.48..975.04 rows=45 width=61) (actual time=22.005..22.037 rows=45 loops=1)"
+"  Group Key: location.neighbourhood_cleansed"
+"  ->  Hash Right Join  (cost=409.67..916.77 rows=11541 width=33) (actual time=6.823..16.899 rows=11541 loops=1)"
+"        Hash Cond: (location.listing_id = price.listing_id)"
+"        ->  Seq Scan on location  (cost=0.00..348.41 rows=11541 width=33) (actual time=0.003..2.833 rows=11541 loops=1)"
+"        ->  Hash  (cost=265.41..265.41 rows=11541 width=8) (actual time=6.799..6.800 rows=11541 loops=1)"
+"              Buckets: 16384  Batches: 1  Memory Usage: 624kB"
+"              ->  Seq Scan on price  (cost=0.00..265.41 rows=11541 width=8) (actual time=0.008..3.303 rows=11541 loops=1)"
+"Planning time: 0.129 ms"
+"Execution time: 22.091 ms"
+/* Query 2: w/out index: 22.269 ms; w/index: 22.091 ms */
+/* Εδώ πάλι υπάρχει μία μείωση αλλά είναι απειροελάχιστη, πιθανότατα οφείλεται στον υπολογιστή η διαφορά και όχι στα indexes, θεωρούμε ότι έπρεπε να υπάρχει βελτίωση και δεν περιμέναμε αυτό το αποτέλεσμα*/
+
+ΓΙΑ ΤΟ QUERY 3:
+SELECT COUNT(room.security_deposit), neighbourhood_cleansed
+FROM ROOM
+INNER JOIN LOCATION on location.listing_id = room.listing_id
+GROUP BY location.neighbourhood_cleansed
+HAVING COUNT(room.security_deposit)> 20;
+
+PLANS BEFORE INDEXES:
+"QUERY PLAN"
+"HashAggregate  (cost=1357.95..1358.40 rows=45 width=66) (actual time=22.760..22.773 rows=37 loops=1)"
+"  Group Key: location.neighbourhood_cleansed"
+"  Filter: (count(room.security_deposit) > 20)"
+"  Rows Removed by Filter: 8"
+"  ->  Hash Join  (cost=892.67..1271.39 rows=11541 width=35) (actual time=8.553..18.291 rows=11541 loops=1)"
+"        Hash Cond: (location.listing_id = room.listing_id)"
+"        ->  Seq Scan on location  (cost=0.00..348.41 rows=11541 width=33) (actual time=0.004..2.788 rows=11541 loops=1)"
+"        ->  Hash  (cost=748.41..748.41 rows=11541 width=10) (actual time=8.528..8.528 rows=11541 loops=1)"
+"              Buckets: 16384  Batches: 1  Memory Usage: 602kB"
+"              ->  Seq Scan on room  (cost=0.00..748.41 rows=11541 width=10) (actual time=0.002..4.889 rows=11541 loops=1)"
+"Planning time: 0.169 ms"
+"Execution time: 22.836 ms"
+
+PLANS AFTER INDEXES:
+"QUERY PLAN"
+"HashAggregate  (cost=1357.95..1358.40 rows=45 width=66) (actual time=22.570..22.583 rows=37 loops=1)"
+"  Group Key: location.neighbourhood_cleansed"
+"  Filter: (count(room.security_deposit) > 20)"
+"  Rows Removed by Filter: 8"
+"  ->  Hash Join  (cost=892.67..1271.39 rows=11541 width=35) (actual time=8.525..18.128 rows=11541 loops=1)"
+"        Hash Cond: (location.listing_id = room.listing_id)"
+"        ->  Seq Scan on location  (cost=0.00..348.41 rows=11541 width=33) (actual time=0.004..2.735 rows=11541 loops=1)"
+"        ->  Hash  (cost=748.41..748.41 rows=11541 width=10) (actual time=8.499..8.500 rows=11541 loops=1)"
+"              Buckets: 16384  Batches: 1  Memory Usage: 602kB"
+"              ->  Seq Scan on room  (cost=0.00..748.41 rows=11541 width=10) (actual time=0.002..4.869 rows=11541 loops=1)"
+"Planning time: 0.192 ms"
+"Execution time: 22.639 ms"
+/* Query 3: w/out index: 22.836 ms; w/index: 22.639 ms */
+/* Για άλλη μία φορά η προσθήκη των indexes δεν προσέφερε τίποτα σε χρόνο στο query καθώς η διαφορά είναι ξανά απειροελάχιστη*/
+
+ΓΙΑ ΤΟ QUERY 4:
+SELECT * FROM GEOLOCATION
+INNER JOIN LOCATION ON LOCATION.neighbourhood_cleansed = GEOLOCATION.properties_neighbourhood
+WHERE LOCATION.neighbourhood_cleansed = GEOLOCATION.properties_neighbourhood AND location.is_location_exact = false;
+
+PLANS BEFORE INDEXES:
+"QUERY PLAN"
+"Hash Join  (cost=9.01..362.33 rows=1707 width=3024) (actual time=0.089..6.945 rows=1707 loops=1)"
+"  Hash Cond: ((location.neighbourhood_cleansed)::text = (geolocation.properties_neighbourhood)::text)"
+"  ->  Seq Scan on location  (cost=0.00..348.41 rows=1707 width=125) (actual time=0.008..2.329 rows=1707 loops=1)"
+"        Filter: (NOT is_location_exact)"
+"        Rows Removed by Filter: 9834"
+"  ->  Hash  (cost=8.45..8.45 rows=45 width=2899) (actual time=0.069..0.069 rows=45 loops=1)"
+"        Buckets: 1024  Batches: 1  Memory Usage: 64kB"
+"        ->  Seq Scan on geolocation  (cost=0.00..8.45 rows=45 width=2899) (actual time=0.001..0.017 rows=45 loops=1)"
+"Planning time: 0.604 ms"
+"Execution time: 7.444 ms"
+
+PLANS AFTER INDEXES:
+"QUERY PLAN"
+"Hash Join  (cost=46.53..301.50 rows=1707 width=3024) (actual time=0.195..5.835 rows=1707 loops=1)"
+"  Hash Cond: ((location.neighbourhood_cleansed)::text = (geolocation.properties_neighbourhood)::text)"
+"  ->  Bitmap Heap Scan on location  (cost=37.51..287.58 rows=1707 width=125) (actual time=0.116..1.174 rows=1707 loops=1)"
+"        Filter: (NOT is_location_exact)"
+"        Heap Blocks: exact=232"
+"        ->  Bitmap Index Scan on query4a  (cost=0.00..37.09 rows=1707 width=0) (actual time=0.089..0.089 rows=1707 loops=1)"
+"              Index Cond: (is_location_exact = false)"
+"  ->  Hash  (cost=8.45..8.45 rows=45 width=2899) (actual time=0.069..0.069 rows=45 loops=1)"
+"        Buckets: 1024  Batches: 1  Memory Usage: 64kB"
+"        ->  Seq Scan on geolocation  (cost=0.00..8.45 rows=45 width=2899) (actual time=0.003..0.019 rows=45 loops=1)"
+"Planning time: 0.623 ms"
+"Execution time: 6.338 ms"
+/* Query 4: w/out index: 7.444 ms; w/index: 6.338 ms */
+/* Εδώ η προσθήκη index στο location.is_location_exact αποδεικνύεται χρήσιμη καθώς μειώνεται ο χρόνος πάνω από ένα ms, κάτι που βγάζει νόημα καθώς οι συγκρίσεις γίνονται πιο γρήγορα με τη βοήθεια του ευρετηρίου*/
+
+ΓΙΑ ΤΟ QUERY 5:
+select host.id,listing.calculated_host_listings_count_entire_homes
+from(select host.id, avg(host.listings_count) as calculated_host_listings_count_entire_homes
+from host
+group by host.id
+having avg(host.listings_count)>100)
+listing join host on host.id = listing.id;
+
+PLANS BEFORE INDEXES:
+"QUERY PLAN"
+"Hash Join  (cost=1296.25..1488.41 rows=6363 width=36) (actual time=9.470..12.369 rows=17 loops=1)"
+"  Hash Cond: (host.id = listing.id)"
+"  ->  Index Only Scan using oraalitheias on host  (cost=0.28..175.73 rows=6363 width=4) (actual time=0.019..1.556 rows=6363 loops=1)"
+"        Heap Fetches: 0"
+"  ->  Hash  (cost=1216.43..1216.43 rows=6363 width=36) (actual time=9.404..9.405 rows=17 loops=1)"
+"        Buckets: 8192  Batches: 1  Memory Usage: 65kB"
+"        ->  Subquery Scan on listing  (cost=1057.35..1216.43 rows=6363 width=36) (actual time=7.196..9.395 rows=17 loops=1)"
+"              ->  HashAggregate  (cost=1057.35..1152.80 rows=6363 width=36) (actual time=7.195..9.386 rows=17 loops=1)"
+"                    Group Key: host_1.id"
+"                    Filter: (avg(host_1.listings_count) > '100'::numeric)"
+"                    Rows Removed by Filter: 6346"
+"                    ->  Seq Scan on host host_1  (cost=0.00..1009.63 rows=6363 width=8) (actual time=0.006..4.078 rows=6363 loops=1)"
+"Planning time: 0.175 ms"
+"Execution time: 12.448 ms"
+
+PLANS AFTER INDEXES:
+"QUERY PLAN"
+"Merge Join  (cost=0.56..653.70 rows=6363 width=36) (actual time=0.148..9.256 rows=17 loops=1)"
+"  Merge Cond: (host_1.id = host.id)"
+"  ->  GroupAggregate  (cost=0.28..318.89 rows=6363 width=36) (actual time=0.105..6.546 rows=17 loops=1)"
+"        Group Key: host_1.id"
+"        Filter: (avg(host_1.listings_count) > '100'::numeric)"
+"        Rows Removed by Filter: 6346"
+"        ->  Index Only Scan using query5a on host host_1  (cost=0.28..175.73 rows=6363 width=8) (actual time=0.020..1.676 rows=6363 loops=1)"
+"              Heap Fetches: 0"
+"  ->  Index Only Scan using query5a on host  (cost=0.28..175.73 rows=6363 width=4) (actual time=0.011..1.470 rows=6103 loops=1)"
+"        Heap Fetches: 0"
+"Planning time: 0.177 ms"
+"Execution time: 9.302 ms"
+/* Query 5: w/out index: 12.448 ms; w/index: 9.302 ms */
+/* Εδώ το index μας έδωσε κέρδος τριών ms στα δώδεκα μία πολύ σημαντική χρονική μείωση, το ευρετήριο στον πίνακα host στα columns id, listings_count, έδωσε άμεση πρόσβαση στη βάση η οποία ολοκλήρωσε το query σαφώς γρηγορότερα*/
+

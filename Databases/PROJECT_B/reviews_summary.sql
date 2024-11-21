@@ -1,0 +1,8 @@
+CREATE TABLE REVIEWS_SUMMARY(
+	listing_id INT,
+	date date
+	);
+	
+ALTER TABLE REVIEWS_SUMMARY(
+	
+	);
