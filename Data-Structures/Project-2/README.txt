@@ -1,0 +1,1 @@
+It is possible to face some errors during the compilation phase in cmd. We added instructions at the end of the PDF on how to deal with them.

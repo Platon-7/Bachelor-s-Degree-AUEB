@@ -1,0 +1,2 @@
+The files have been uploaded in a way that you can run it with cmd or any other IDE. When using cmd we compiled with javac src/Classname.java and run
+with java src.Main. To read jester.txt or another file all you need to do is pass the path as an input.
